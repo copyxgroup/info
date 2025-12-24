@@ -56,10 +56,10 @@
       height: 600px;
     }
 
-    iframe {
+    typebot-standard {
       width: 100%;
       height: 100%;
-      border: none;
+      display: block;
     }
 
     @media (max-width: 480px) {
@@ -78,11 +78,18 @@
     </div>
 
     <div class="bot-wrapper">
-      <iframe
-        src="https://bot1-typebot-viewer.jn20b9.easypanel.host/latam-0p3axqq"
-        allow="clipboard-write"
-      ></iframe>
+      <typebot-standard></typebot-standard>
     </div>
   </div>
+
+  <!-- Typebot Standard -->
+  <script type="module">
+    import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js';
+
+    Typebot.initStandard({
+      typebot: "latam-yparp3t",
+      apiHost: "https://typebot-typebot-viewer.tomw1x.easypanel.host",
+    });
+  </script>
 </body>
 </html>
