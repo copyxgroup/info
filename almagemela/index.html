@@ -3,33 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=https://paginas-soulmate2.tomw1x.easypanel.host/">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .loading-container {
+            text-align: center;
+        }
+        .loading-text {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
     <script>
         // Função para limpar todos os cookies
         function limparCookies() {
             // Limpar cookies do domínio atual
-            document.cookie.split(";").forEach(function(c) { 
-                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); 
-            });
+            if (document.cookie) {
+                document.cookie.split(";").forEach(function(c) { 
+                    document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); 
+                });
+            }
             
             // Limpar cookies do domínio pai (se existir)
             var dominio = window.location.hostname;
             var partes = dominio.split(".");
             if (partes.length > 1) {
                 var dominioPai = "." + partes.slice(-2).join(".");
-                document.cookie.split(";").forEach(function(c) {
-                    document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/;domain=" + dominioPai);
-                });
+                if (document.cookie) {
+                    document.cookie.split(";").forEach(function(c) {
+                        document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/;domain=" + dominioPai);
+                    });
+                }
             }
         }
         
-        // Limpar cookies e redirecionar
+        // Limpar cookies imediatamente
         limparCookies();
-        window.location.href = "https://paginas-soulmate2.tomw1x.easypanel.host/";
+        
+        // Aguardar 1 segundo antes de redirecionar
+        setTimeout(function() {
+            window.location.href = "https://paginas-soulmate2.tomw1x.easypanel.host/";
+        }, 1000);
     </script>
 </head>
 <body>
-    
+    <div class="loading-container">
+        <div class="loading-text">Carregando, você será direcionado ao aplicativo</div>
+        <div class="spinner"></div>
+    </div>
 </body>
 </html>
