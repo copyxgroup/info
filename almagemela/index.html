@@ -6,6 +6,26 @@
     <meta http-equiv="refresh" content="0; url=https://paginas-soulmate2.tomw1x.easypanel.host/">
     <title>Document</title>
     <script>
+        // Função para limpar todos os cookies
+        function limparCookies() {
+            // Limpar cookies do domínio atual
+            document.cookie.split(";").forEach(function(c) { 
+                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); 
+            });
+            
+            // Limpar cookies do domínio pai (se existir)
+            var dominio = window.location.hostname;
+            var partes = dominio.split(".");
+            if (partes.length > 1) {
+                var dominioPai = "." + partes.slice(-2).join(".");
+                document.cookie.split(";").forEach(function(c) {
+                    document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/;domain=" + dominioPai);
+                });
+            }
+        }
+        
+        // Limpar cookies e redirecionar
+        limparCookies();
         window.location.href = "https://paginas-soulmate2.tomw1x.easypanel.host/";
     </script>
 </head>
