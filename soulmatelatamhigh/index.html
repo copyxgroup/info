@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descubre a tu Alma Gemela — Madame Serena</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #0f0c29, #302b63, #24243e);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      background: rgba(0, 0, 0, 0.55);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 24px 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .header span {
+      display: block;
+      margin-top: 8px;
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    .bot-wrapper {
+      width: 100%;
+      height: 600px;
+    }
+
+    typebot-standard {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    @media (max-width: 480px) {
+      .bot-wrapper {
+        height: 100vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Descubre a tu Alma Gemela</h1>
+      <span>Guía espiritual — Madame Serena</span>
+    </div>
+
+    <div class="bot-wrapper">
+      <typebot-standard></typebot-standard>
+    </div>
+  </div>
+
+  <!-- Typebot Standard -->
+  <script type="module">
+    import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js';
+
+    Typebot.initStandard({
+      typebot: "latam-yparp3t",
+      apiHost: "https://typebot-typebot-viewer.tomw1x.easypanel.host",
+    });
+  </script>
+</body>
+</html>
