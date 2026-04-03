@@ -203,83 +203,76 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
   .titulo-topo-01 span { color: #ffd814 !important; }
   .timer { color: #ffd814 !important; }
 
-  /* ── Cards de produto ── */
+  /* ══════════ CARDS DE PRODUTO ══════════ */
+
+  /* Todos os cards: fundo branco, borda vermelha */
   .products .item {
     background-color: #fff !important;
-    border-color: rgba(0,0,0,0.12) !important;
-    border-width: 2px !important;
-    color: var(--text) !important;
-  }
-
-  .products .item:hover {
-    border-color: var(--green) !important;
-    box-shadow: 0 0 20px rgba(34,169,79,0.15) !important;
-  }
-
-  .products .item .item-header {
-    background-color: var(--accent) !important;
-    color: #fff !important;
-  }
-
-  .products .item .item-info .price b,
-  .products .item .item-info .price sup,
-  .products .item .item-info .price span {
+    border: 2px solid var(--accent) !important;
     color: var(--text) !important;
     text-shadow: none !important;
   }
-
-  .products .item .item-info .savings > div {
-    border-color: rgba(0,0,0,0.08) !important;
-    color: var(--text) !important;
+  .products .item:hover {
+    box-shadow: 0 4px 20px rgba(192,57,43,0.18) !important;
   }
 
+  /* Wrapper: fundo branco limpo */
+  .products .item .wrapper {
+    background: #fff !important;
+    background-image: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Tarja do header: vermelha, largura total */
+  .products .item .item-header {
+    background-color: var(--accent) !important;
+    background-image: none !important;
+    color: #fff !important;
+    text-shadow: none !important;
+    font-weight: 800 !important;
+    padding: 0.3em 0.5em !important;
+    border-radius: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Preços e textos: sem sombra */
+  .products .item .item-info .price b,
+  .products .item .item-info .price sup {
+    color: var(--text) !important;
+    text-shadow: none !important;
+  }
+  .products .item .item-info .price span {
+    display: none !important;
+  }
+  .products .item .item-info .savings > div {
+    color: var(--text) !important;
+    border-color: rgba(0,0,0,0.1) !important;
+    text-shadow: none !important;
+  }
   .products .item .item-info .savings > div:first-child {
     color: var(--accent) !important;
   }
-
   .products .item .item-img .supply,
   .products .item .item-totals .totals,
   .products .item .item-totals .shipping {
     color: var(--text) !important;
+    text-shadow: none !important;
   }
 
-  .products .item.promo {
-    background-color: #fff !important;
-    border-color: var(--green) !important;
-    border-width: 2px !important;
-  }
-
-  .products .item.promo .wrapper {
-    background-image: radial-gradient(#f0fdf4, #dcfce7) !important;
-  }
-
-  .products .item.promo .item-header {
-    background-color: var(--green) !important;
-    color: #fff !important;
-  }
-
-  .products .item.promo .item-info .savings > div {
-    color: var(--text) !important;
-    border-color: rgba(0,0,0,0.08) !important;
-  }
-
-  .products .item.promo .item-info .savings > div:first-child {
-    color: var(--green) !important;
-  }
-
-  .products .item.promo .item-totals .shipping,
-  .products .item.promo .item-totals .shipping span {
-    color: var(--green) !important;
-  }
-
+  /* Remove ícones Bootstrap dos savings e botão */
   .products .item .item-info .savings span::before,
   .products .item .item-buy .button span::before {
     content: none !important;
     display: none !important;
   }
 
-  /* Botão COMPRAR AGORA */
-  .products .item .item-buy .button {
+  /* Botão COMPRAR AGORA: vermelho */
+  .products .item .item-buy .button,
+  .products .item .item-buy .button *,
+  .products .item .item-buy .button span,
+  .products .item .item-buy .button b {
     background-color: var(--accent) !important;
     background-image: none !important;
     color: #fff !important;
@@ -287,20 +280,70 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
     border-radius: 8px !important;
     font-weight: 800 !important;
   }
-
   .products .item .item-buy .button:hover {
     background-color: var(--accent-dark) !important;
-    box-shadow: 0 4px 16px rgba(192,57,43,0.35) !important;
   }
 
-  .products .item.promo .item-buy .button {
-    background-image: linear-gradient(to top, var(--green-dark) 50%, var(--green) 51%) !important;
+  /* ── Card PROMO (5 unidades): borda e tarja VERDE ── */
+  .products .item.promo {
+    border: 2px solid var(--green) !important;
+    background-color: #fff !important;
+    text-shadow: none !important;
+  }
+  .products .item.promo .wrapper {
+    background: #f0fdf4 !important;
+    background-image: none !important;
+    text-shadow: none !important;
+  }
+  .products .item.promo .item-header {
+    background-color: var(--green) !important;
     color: #fff !important;
     text-shadow: none !important;
   }
+  .products .item.promo .item-info .savings > div {
+    color: var(--text) !important;
+    text-shadow: none !important;
+  }
+  .products .item.promo .item-info .savings > div:first-child {
+    color: var(--green) !important;
+  }
+  .products .item.promo .item-totals .shipping,
+  .products .item.promo .item-totals .shipping span {
+    color: var(--green) !important;
+  }
+  .products .item.promo .item-buy .button,
+  .products .item.promo .item-buy .button *,
+  .products .item.promo .item-buy .button span,
+  .products .item.promo .item-buy .button b {
+    background-color: var(--green) !important;
+    background-image: none !important;
+    color: #fff !important;
+    text-shadow: none !important;
+  }
+  .products .item.promo .item-buy .button:hover {
+    background-color: var(--green-dark) !important;
+  }
+
+  /* ── Mobile: grid sem linha vazia ── */
+  @media (max-width: 767px) {
+    .products .item,
+    .products .item.promo {
+      text-shadow: none !important;
+    }
+    .products .item .wrapper {
+      grid-template-areas:
+        "header header"
+        "img    info  "
+        "img    totals"
+        "footer footer" !important;
+    }
+    .products .item .item-header {
+      grid-area: header !important;
+    }
+  }
 
   /* ── Seção Garantia ── */
-  .topo-4 { background-color: var(--bg) !important; }
+  .topo-4 { background-color: var(--bg) !important; padding-top: 8px !important; margin-top: 0 !important; }
 
   .fundo-garantia2 {
     background-color: #fff !important;
@@ -339,6 +382,11 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
   }
 
   .vmask::after { background-color: var(--bg) !important; }
+
+  /* ── Fix: oculta span duplicado dentro do preço ── */
+  .products .item .item-info .price span {
+    display: none !important;
+  }
 
   a { color: var(--text) !important; }
   a:hover { color: var(--green) !important; }
@@ -425,7 +473,7 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
 
     </div>
 
-    <section class="py-4 products negative-top-margin">
+    <section class="py-2 products negative-top-margin">
       <div class="container">
         <div class="row align-items-center" id="kit">
           <!-- 6 Bottles -->
@@ -549,7 +597,7 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
 
             <p class="texto-tempo vermelho">Oferta por Tempo Limitado</p>
 
-            <button onclick="rolar_para('#kit')" class="botao3 pulse"><span>SIM!</span> Eu quero o BIO EXTRATO AZULZINHO</button>
+            
 
           </div>
 
@@ -561,13 +609,7 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
 
   </div>
 
-  <section class="topo-00">
-    <div class="container comments">
-
-
-
-    </div>
-  </section>
+  
 
 <script>
 (function() {
@@ -693,7 +735,7 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
       startCounter();
     }
 
-    setTimeout(showEls, 5000);
+    setTimeout(showEls, 30000);
   </script>
 
 
