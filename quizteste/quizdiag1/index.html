@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Personalizado</title>
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+  <link rel="preload" href="https://scripts.converteai.net/27d65a4a-43f3-4eda-8975-c299df6e2f47/players/6939af6006cad134dd31e3a0/v4/player.js" as="script">
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+  <link rel="preload" href="https://cdn.converteai.net/27d65a4a-43f3-4eda-8975-c299df6e2f47/6939aeba408607a9b7f853db/main.m3u8" as="fetch">
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://api.vturb.com.br">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0e0e1b;
+      --card-bg: #16162a;
+      --card-border: rgba(255,255,255,0.07);
+      --accent: #c0392b;
+      --accent-glow: rgba(192,57,43,0.18);
+      --text: #f0f0f5;
+      --muted: #7a7a9a;
+      --option-hover-bg: rgba(192,57,43,0.08);
+      --selected-border: #c0392b;
+      --selected-bg: rgba(192,57,43,0.12);
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 32px 16px 64px;
+    }
+
+    /* ─── SCREENS ─── */
+    .screen { display: none; width: 100%; max-width: 560px; animation: fadeUp 0.35s ease; }
+    .screen.active { display: block; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── LOGO ─── */
+    .logo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      box-shadow: 0 4px 20px rgba(192,57,43,0.4);
+    }
+
+    /* ─── INTRO ─── */
+    #intro { text-align: center; }
+
+    .intro-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .intro-title {
+      font-size: clamp(22px, 5vw, 30px);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 36px;
+    }
+
+    .age-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .age-card {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid var(--card-border);
+      aspect-ratio: 3/4;
+      background: var(--card-bg);
+      transition: border-color 0.2s, transform 0.18s;
+    }
+
+    .age-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .age-card-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    /* gradient silhouette illustration */
+    .age-silhouette {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 78%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      filter: grayscale(0.3);
+    }
+
+    .age-card:nth-child(1) .age-silhouette { background: linear-gradient(160deg, #1f2b4a 0%, #0e0e1b 100%); }
+    .age-card:nth-child(2) .age-silhouette { background: linear-gradient(160deg, #2b1f1f 0%, #0e0e1b 100%); }
+    .age-card:nth-child(3) .age-silhouette { background: linear-gradient(160deg, #1f2b22 0%, #0e0e1b 100%); }
+    .age-card:nth-child(4) .age-silhouette { background: linear-gradient(160deg, #2b2a1f 0%, #0e0e1b 100%); }
+
+    .age-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 14px 10px 12px;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+      text-align: center;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .terms {
+      font-size: 11.5px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .terms a {
+      color: #aaa;
+      text-decoration: underline;
+    }
+
+    /* ─── PROGRESS BAR ─── */
+    .progress-wrap {
+      margin-bottom: 28px;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .progress-track {
+      height: 4px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 99px;
+      transition: width 0.4s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ─── QUESTION ─── */
+    .q-number {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .q-title {
+      font-size: clamp(18px, 4.5vw, 24px);
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .q-subtitle {
+      font-size: 13.5px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    /* ─── OPTIONS ─── */
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .opt {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 18px;
+      background: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 12px;
+      color: var(--text);
+      font-size: 14.5px;
+      font-family: inherit;
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.18s, background 0.18s, transform 0.15s;
+      line-height: 1.4;
+    }
+
+    .opt:hover {
+      border-color: var(--accent);
+      background: var(--option-hover-bg);
+      transform: translateX(3px);
+    }
+
+    .opt.selected {
+      border-color: var(--selected-border);
+      background: var(--selected-bg);
+    }
+
+    .opt-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      transition: background 0.18s, border-color 0.18s;
+    }
+
+    .opt.selected .opt-icon {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Scale options (grid layout) */
+    .options.scale {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .options.scale .opt {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 18px 8px;
+      font-size: 16px;
+      font-weight: 700;
+      gap: 0;
+    }
+
+    .options.scale .opt .opt-icon { display: none; }
+
+    /* ─── BACK BUTTON ─── */
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+      padding: 0;
+      margin-bottom: 20px;
+      font-family: inherit;
+      transition: color 0.2s;
+    }
+
+    .back-btn:hover { color: var(--text); }
+
+    /* ─── RESULT SCREEN ─── */
+    #result { text-align: center; }
+
+    .result-icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+
+    .result-title {
+      font-size: clamp(22px, 5vw, 30px);
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .result-subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .result-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px 20px;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    .result-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 13.5px;
+    }
+
+    .result-row:last-child { border-bottom: none; }
+    .result-row span:first-child { color: var(--muted); }
+    .result-row span:last-child { font-weight: 600; max-width: 60%; text-align: right; }
+
+    .cta-btn {
+      display: block;
+      width: 100%;
+      padding: 17px;
+      background: var(--accent);
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s, transform 0.15s;
+      box-shadow: 0 4px 24px rgba(192,57,43,0.35);
+    }
+
+    .cta-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    .disclaimer {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    /* ─── LOADING SCREEN ─── */
+    #loading {
+      text-align: center;
+      padding-top: 60px;
+    }
+
+    .loading-icon {
+      font-size: 52px;
+      margin-bottom: 24px;
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%       { transform: scale(1.12); opacity: 0.7; }
+    }
+
+    .loading-title {
+      font-size: clamp(20px, 5vw, 26px);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .loading-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .loading-bar-wrap {
+      background: rgba(255,255,255,0.07);
+      border-radius: 99px;
+      height: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .loading-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), #e74c3c);
+      border-radius: 99px;
+      transition: width 0.25s ease;
+    }
+
+    .loading-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 32px;
+      text-align: left;
+    }
+
+    .loading-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13.5px;
+      color: var(--muted);
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity 0.4s, transform 0.4s, color 0.3s;
+    }
+
+    .loading-step.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .loading-step.done {
+      color: var(--text);
+    }
+
+    .step-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .loading-step.done .step-dot {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ─── VIDEO PAGE ─── */
+    #videopage {
+      max-width: 700px;
+    }
+
+    body.on-video {
+      background: #f2f2f2;
+      color: #111;
+      align-items: center;
+    }
+
+    #videopage .vp-logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    #videopage .vp-logo .logo {
+      background: var(--accent);
+    }
+
+    .vp-title {
+      text-align: center;
+      font-size: clamp(18px, 4.5vw, 24px);
+      font-weight: 700;
+      color: #111;
+      line-height: 1.4;
+      margin-bottom: 24px;
+      padding: 0 8px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto 28px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+      background: #000;
+      aspect-ratio: 9/16;
+    }
+
+    .video-wrapper video,
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .video-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, #1a1a2e 0%, #2d1a1a 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .play-btn {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      border: 3px solid rgba(255,255,255,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .play-btn:hover {
+      background: rgba(255,255,255,0.28);
+      transform: scale(1.07);
+    }
+
+    .play-btn svg {
+      width: 26px;
+      height: 26px;
+      fill: #fff;
+      margin-left: 4px;
+    }
+
+    .vp-badge {
+      display: inline-block;
+      background: #27ae60;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════ INTRO ══════════ -->
+  <div class="screen active" id="intro">
+    <div class="logo-wrap">
+      <div class="logo">)(</div>
+    </div>
+    <p class="intro-tag">Quiz de 1 minuto</p>
+    <h1 class="intro-title">Receita personalizada<br/>de acordo com a sua idade</h1>
+
+    <div class="age-grid">
+      <div class="age-card" onclick="selectAge('18–30')">
+        <div class="age-silhouette">🧑</div>
+        <div class="age-label">18–30</div>
+      </div>
+      <div class="age-card" onclick="selectAge('31–45')">
+        <div class="age-silhouette">👨</div>
+        <div class="age-label">31–45</div>
+      </div>
+      <div class="age-card" onclick="selectAge('46–55')">
+        <div class="age-silhouette">🧔</div>
+        <div class="age-label">46–55</div>
+      </div>
+      <div class="age-card" onclick="selectAge('56+')">
+        <div class="age-silhouette">👴</div>
+        <div class="age-label">56+</div>
+      </div>
+    </div>
+
+    <p class="terms">
+      Ao continuar, você concorda com nossos
+      <a href="#">Termos de Uso</a>,
+      <a href="#">Política de Privacidade</a>
+      e <a href="#">Política de Cookies</a>.
+    </p>
+  </div>
+
+  <!-- ══════════ PERGUNTAS ══════════ -->
+  <div class="screen" id="questions">
+    <div class="logo-wrap">
+      <div class="logo">)(</div>
+    </div>
+
+    <button class="back-btn" onclick="goBack()">
+      ← Voltar
+    </button>
+
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span id="step-label">Pergunta 1 de 8</span>
+        <span id="pct-label">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div id="question-body"></div>
+  </div>
+
+  <!-- ══════════ LOADING ══════════ -->
+  <div class="screen" id="loading">
+    <div class="logo-wrap">
+      <div class="logo">)(</div>
+    </div>
+    <div class="loading-icon">🔬</div>
+    <h2 class="loading-title">Analisando seu perfil...</h2>
+    <p class="loading-subtitle">Aguarde enquanto processamos suas respostas</p>
+
+    <div class="loading-bar-wrap">
+      <div class="loading-bar-fill" id="loading-bar"></div>
+    </div>
+    <p id="loading-pct" style="font-size:13px; color:var(--muted); text-align:right;">0%</p>
+
+    <div class="loading-steps">
+      <div class="loading-step" id="ls1">
+        <div class="step-dot">✓</div>
+        Verificando histórico de saúde
+      </div>
+      <div class="loading-step" id="ls2">
+        <div class="step-dot">✓</div>
+        Calculando perfil hormonal
+      </div>
+      <div class="loading-step" id="ls3">
+        <div class="step-dot">✓</div>
+        Identificando protocolo ideal
+      </div>
+      <div class="loading-step" id="ls4">
+        <div class="step-dot">✓</div>
+        Preparando sua receita personalizada
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ PÁGINA DE VÍDEO ══════════ -->
+  <div class="screen" id="videopage">
+    <div class="vp-logo">
+      <div class="logo">)(</div>
+    </div>
+    <div class="video-wrapper">
+      <vturb-smartplayer id="vid-6939af6006cad134dd31e3a0" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+      <script type="text/javascript">
+        var s = document.createElement("script");
+        s.src = "https://scripts.converteai.net/27d65a4a-43f3-4eda-8975-c299df6e2f47/players/6939af6006cad134dd31e3a0/v4/player.js";
+        s.async = true;
+        document.head.appendChild(s);
+      </script>
+    </div>
+  </div>
+
+  <!-- ══════════ RESULTADO ══════════ -->
+  <div class="screen" id="result">
+    <div class="logo-wrap">
+      <div class="logo">)(</div>
+    </div>
+
+    <div class="result-icon">🎯</div>
+    <h2 class="result-title">Seu perfil foi analisado!</h2>
+    <p class="result-subtitle">
+      Com base nas suas respostas, identificamos o melhor protocolo personalizado para você.
+    </p>
+
+    <div class="result-card">
+      <h3>Resumo do seu perfil</h3>
+      <div id="result-rows"></div>
+    </div>
+
+    <button class="cta-btn" onclick="alert('Redirecionando para sua receita personalizada...')">
+      Ver minha receita personalizada →
+    </button>
+
+    <p class="disclaimer">
+      * Estas informações são usadas apenas para personalizar sua recomendação.
+      Consulte sempre um profissional de saúde.
+    </p>
+  </div>
+
+<script>
+  const questions = [
+    {
+      id: 'objetivo',
+      title: 'Qual é o seu principal objetivo com a receita personalizada?',
+      subtitle: 'Selecione uma opção abaixo',
+      type: 'single',
+      options: [
+        { label: 'Melhorar a função erétil', icon: '💪' },
+        { label: 'Melhorar o controle da ejaculação', icon: '⏱️' },
+        { label: 'Maximizar o desempenho com a minha parceira (aprimorar os 2 itens acima) 👆', icon: '🔥' },
+      ],
+    },
+    {
+      id: 'problema',
+      title: 'Qual das opções abaixo melhor descreve o seu problema/incômodo atualmente?',
+      subtitle: 'Selecione uma opção abaixo',
+      type: 'single',
+      options: [
+        { label: 'Dificuldade em ter ereções fortes', icon: '📉' },
+        { label: 'Dificuldade em manter a ereção', icon: '⚡' },
+        { label: 'As duas coisas acima 👆', icon: '🎯' },
+        { label: 'Prefiro não responder agora', icon: '🔒' },
+      ],
+    },
+    {
+      id: 'frequencia_problema',
+      title: 'Com que frequência você tem problemas de ereção?',
+      subtitle: 'Selecione uma opção abaixo',
+      type: 'single',
+      options: [
+        { label: 'Nunca', icon: '✅' },
+        { label: 'Raramente', icon: '🔵' },
+        { label: 'Muitas vezes', icon: '🟡' },
+        { label: 'O tempo todo', icon: '🔴' },
+        { label: 'Prefiro não responder', icon: '🔒' },
+      ],
+    },
+    {
+      id: 'tempo',
+      title: 'Há quanto tempo você vem tendo problemas de ereção?',
+      subtitle: 'Selecione uma opção abaixo',
+      type: 'single',
+      options: [
+        { label: 'Menos de 1 ano', icon: '📅' },
+        { label: 'Entre 1 a 5 anos', icon: '📆' },
+        { label: 'Entre 5 e 10 anos', icon: '🗓️' },
+        { label: 'Há mais de 10 anos', icon: '⏳' },
+        { label: 'Prefiro não responder', icon: '🔒' },
+      ],
+    },
+    {
+      id: 'duas_vezes',
+      title: 'Atualmente, você consegue fazer sexo duas vezes seguidas?',
+      subtitle: 'Selecione uma opção abaixo',
+      type: 'single',
+      options: [
+        { label: 'Sim, mas preciso me esforçar bastante', icon: '💦' },
+        { label: 'Não, não consigo', icon: '❌' },
+        { label: 'Às vezes consigo', icon: '🔄' },
+        { label: 'Prefiro não responder', icon: '🔒' },
+      ],
+    },
+    {
+      id: 'erecao_manha',
+      title: 'Com que frequência você tem ereções quando acorda?',
+      subtitle: 'Selecione uma opção abaixo',
+      type: 'single',
+      options: [
+        { label: 'Nunca', icon: '😔' },
+        { label: 'Raramente', icon: '🌤️' },
+        { label: 'Em alguns dias da semana', icon: '📊' },
+        { label: 'O tempo todo', icon: '☀️' },
+        { label: 'Prefiro não responder', icon: '🔒' },
+      ],
+    },
+    {
+      id: 'rigidez_masturbacao',
+      title: 'Quão rígida é a sua ereção durante a masturbação?',
+      subtitle: 'Selecione uma nota na escala 0 a 10 abaixo',
+      type: 'scale',
+      options: [
+        { label: '1–2', icon: '' },
+        { label: '3–4', icon: '' },
+        { label: '5–6', icon: '' },
+        { label: '7–8', icon: '' },
+        { label: '9–10', icon: '' },
+      ],
+    },
+    {
+      id: 'rigidez_sexo',
+      title: 'Quão rígida é a sua ereção durante o sexo?',
+      subtitle: 'Selecione uma nota na escala 0 a 10 abaixo',
+      type: 'scale',
+      options: [
+        { label: '1–2', icon: '' },
+        { label: '3–4', icon: '' },
+        { label: '5–6', icon: '' },
+        { label: '7–8', icon: '' },
+        { label: '9–10', icon: '' },
+      ],
+    },
+  ];
+
+  const answers = {};
+  let currentStep = 0;
+
+  function selectAge(range) {
+    answers['idade'] = range;
+    showScreen('questions');
+    renderQuestion(0);
+  }
+
+  function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if (id !== 'videopage') document.body.classList.remove('on-video');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function renderQuestion(index) {
+    currentStep = index;
+    const q = questions[index];
+    const total = questions.length;
+    const pct = Math.round((index / total) * 100);
+
+    document.getElementById('step-label').textContent = `Pergunta ${index + 1} de ${total}`;
+    document.getElementById('pct-label').textContent = `${pct}%`;
+    document.getElementById('progress-fill').style.width = pct + '%';
+
+    const isScale = q.type === 'scale';
+    const optClass = isScale ? 'options scale' : 'options';
+
+    const optionsHTML = q.options.map((o, i) => {
+      const sel = answers[q.id] === o.label ? 'selected' : '';
+      if (isScale) {
+        return `<button class="opt ${sel}" onclick="selectOption(${index}, ${i})">${o.label}</button>`;
+      }
+      return `
+        <button class="opt ${sel}" onclick="selectOption(${index}, ${i})">
+          <span class="opt-icon">${o.icon}</span>
+          ${o.label}
+        </button>`;
+    }).join('');
+
+    document.getElementById('question-body').innerHTML = `
+      <p class="q-number">Pergunta ${index + 1}</p>
+      <h2 class="q-title">${q.title}</h2>
+      <p class="q-subtitle">${q.subtitle}</p>
+      <div class="${optClass}">${optionsHTML}</div>
+    `;
+  }
+
+  function selectOption(qIndex, optIndex) {
+    const q = questions[qIndex];
+    answers[q.id] = q.options[optIndex].label;
+
+    renderQuestion(qIndex);
+
+    setTimeout(() => {
+      if (qIndex + 1 < questions.length) {
+        renderQuestion(qIndex + 1);
+      } else {
+        showResult();
+      }
+    }, 400);
+  }
+
+  function goBack() {
+    if (currentStep === 0) {
+      showScreen('intro');
+    } else {
+      renderQuestion(currentStep - 1);
+    }
+  }
+
+  function showResult() {
+    showScreen('loading');
+    runLoadingAnimation();
+  }
+
+  function runLoadingAnimation() {
+    const bar      = document.getElementById('loading-bar');
+    const pctLabel = document.getElementById('loading-pct');
+    const steps = [
+      { el: document.getElementById('ls1'), at: 15  },
+      { el: document.getElementById('ls2'), at: 38  },
+      { el: document.getElementById('ls3'), at: 62  },
+      { el: document.getElementById('ls4'), at: 85  },
+    ];
+
+    let pct = 0;
+    const DURATION = 4200;
+    const INTERVAL = 40;
+    const INCREMENT = 100 / (DURATION / INTERVAL);
+
+    const timer = setInterval(() => {
+      pct = Math.min(pct + INCREMENT + (Math.random() * 0.6), 100);
+      bar.style.width = pct + '%';
+      pctLabel.textContent = Math.floor(pct) + '%';
+
+      steps.forEach(s => {
+        if (pct >= s.at && !s.el.classList.contains('visible')) {
+          s.el.classList.add('visible');
+          setTimeout(() => s.el.classList.add('done'), 500);
+        }
+      });
+
+      if (pct >= 100) {
+        clearInterval(timer);
+        pctLabel.textContent = '100%';
+        setTimeout(() => showVideoPage(), 600);
+      }
+    }, INTERVAL);
+  }
+
+  function showVideoPage() {
+    window.location.href = 'vsl/';
+  }
+</script>
+</body>
+</html>
