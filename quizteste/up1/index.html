@@ -785,5 +785,31 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
   </script>
 
 
+    <script>
+/** * PITCH REVEAL - SINCRONIZADO COM VTURB (5 SEGUNDOS)
+ */
+window.addEventListener('message', function(e) {
+    if (e.data.type === 'smartplayer:timeupdate') {
+        let currentTime = e.data.payload.currentTime;
+        
+        // Libera a seção 'esconder' aos 5 segundos de vídeo
+        if (currentTime >= 5) {
+            document.querySelectorAll('.esconder').forEach(function(el) {
+                if (el.style.display === 'none' || el.style.display === '') {
+                    el.style.display = 'block';
+                    
+                    // Dispara automaticamente o contador de frascos que já está no seu código
+                    if (typeof startCounter === "function") {
+                        startCounter();
+                    }
+                }
+            });
+        }
+    }
+});
+
+/* Removemos o timer antigo de 30s para não dar conflito com o tempo do vídeo */
+</script>
+
 
 </body></html>
