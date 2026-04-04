@@ -243,7 +243,9 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
     color: var(--text) !important;
     text-shadow: none !important;
   }
-
+  .products .item .item-info .price span {
+    display: none !important;
+  }
   .products .item .item-info .savings > div {
     color: var(--text) !important;
     border-color: rgba(0,0,0,0.1) !important;
@@ -322,17 +324,6 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
     background-color: var(--green-dark) !important;
   }
 
-
-.parcelamento {
-    font-size: 0.25em !important; /* Ajustei para 25% para não ficar ilegível, mas pode manter 0.2 se preferir */
-    vertical-align: middle;
-    display: inline-block !important; /* O !important aqui é o que faz ele aparecer */
-    line-height: 1;
-    color: var(--text) !important;
-    margin-right: 2px;
-}
-
-
   /* ── Mobile: grid sem linha vazia ── */
   @media (max-width: 767px) {
     .products .item,
@@ -392,6 +383,10 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
 
   .vmask::after { background-color: var(--bg) !important; }
 
+  /* ── Fix: oculta span duplicado dentro do preço ── */
+  .products .item .item-info .price span {
+    display: none !important;
+  }
 
   a { color: var(--text) !important; }
   a:hover { color: var(--green) !important; }
@@ -492,7 +487,7 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
                 </div>
                 <div class="item-info">
                   <div class="price">
-                      <b><sup>R$</sup><span class="parcelamento">12x de</span> 39</b><span>5<br>UNIDADES</span>
+                      <b><sup>R$</sup>397</b><span>5<br>UNIDADES</span>
                   </div>
                   <div class="savings">
                     <div><span>MAIOR DESCONTO</span></div>
@@ -507,7 +502,7 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
                   <img src="images/cards-dark.webp" alt="Cards" class="card-flags">
                 </div>
                 <div class="item-totals">
-                  <div class="totals">Total: <b>12x de R$39</b></div>
+                  <div class="totals">Total: <b>R$397,00</b></div>
                   <div class="shipping">+ <span>FRETE GRÁTIS</span></div>
                 </div>
               </div>
@@ -526,7 +521,7 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
                 </div>
                 <div class="item-info">
                   <div class="price">
-                    <b><sup>R$</sup><span class="parcelamento">12x de</span> 29</b><span>3<br>UNIDADES</span>
+                      <b><sup>R$</sup>297</b><span>3<br>UNIDADES</span>
                   </div>
                   <div class="savings">
                     <div><span>ÓTIMO DESCONTO</span></div>
@@ -541,7 +536,7 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
                   <img src="images/cards.webp" alt="Cards" class="card-flags">
                 </div>
                 <div class="item-totals">
-                  <div class="totals">Total: <b>12x de R$29,82</b></div>
+                  <div class="totals">Total: <b>R$297,00</b></div>
                   <div class="shipping">+ <span>FRETE GRÁTIS</span></div>
                 </div>
               </div>
@@ -560,7 +555,7 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
                 </div>
                 <div class="item-info">
                   <div class="price">
-                     <b><sup>R$</sup><span class="parcelamento">12x de</span> 19</b><span>1<br>UNIDADE</span>
+                      <b><sup>R$</sup>197</b><span>1<br>UNIDADE</span>
                   </div>
                   <div class="savings">
                     <div><span>EXPERIMENTE</span></div>
@@ -575,7 +570,7 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
                   <img src="images/cards.webp" alt="Cards" class="card-flags">
                 </div>
                 <div class="item-totals">
-                  <div class="totals">Total: <b>R12x de R$19,78</b></div>
+                  <div class="totals">Total: <b>R$197,00</b></div>
                   <div class="shipping">+ <span>FRETE GRÁTIS</span></div>
                 </div>
               </div>
