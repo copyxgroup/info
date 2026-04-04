@@ -324,12 +324,19 @@ src="https://www.facebook.com/tr?id=824145700550711&ev=PageView&noscript=1"
     background-color: var(--green-dark) !important;
   }
 
-  /* Isso faz com que o texto de parcelamento fique com 20% do tamanho do número */
+
 .parcelamento {
-    font-size: 0.2em; 
+    font-size: 0.25em !important; /* Ajustei para 25% para não ficar ilegível, mas pode manter 0.2 se preferir */
     vertical-align: middle;
-    display: inline-block;
+    display: inline-block !important; /* O !important aqui é o que faz ele aparecer */
     line-height: 1;
+    color: var(--text) !important;
+    margin-right: 2px;
+}
+
+/* Mantenha o restante como está, apenas garanta que a regra abaixo não afete a classe .parcelamento */
+.products .item .item-info .price span:not(.parcelamento) {
+    display: none !important;
 }
 
   /* ── Mobile: grid sem linha vazia ── */
