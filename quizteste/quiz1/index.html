@@ -79,6 +79,26 @@
     color: white;
   }
 
+ .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 0;
+  }
+
+  .logo-container img {
+    width: 120px; /* tamanho no mobile */
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  @media (min-width: 768px) {
+    .logo-container img {
+      width: 160px; /* desktop */
+    }
+  }
+    
   .quiz-proof strong {
     color: #ffffff;
     font-weight: 600;
@@ -467,9 +487,9 @@
 
   <!-- ══════════ INTRO ══════════ -->
   <div class="screen active" id="intro">
-    <div class="logo-wrap">
-      <div class="logo">)(</div>
-    </div>
+  <div class="logo-container">
+  <img src="/info/quizteste/quiz1/imagensquiz/logo.jpg" alt="Logo">
+</div>
     <p class="intro-tag">Quiz de 1 minuto</p>
     <h1 class="intro-title">Quantos anos você tem?a<br/>de acordo com a sua idade</h1>
 
