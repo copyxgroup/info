@@ -342,6 +342,20 @@
       color: var(--text);
     }
 
+
+.intro-title {
+  margin-bottom: 24px; /* ajusta aqui */
+}
+
+    .age-grid {
+  margin-bottom: 20px; /* controla esse espaço */
+}
+
+    
+  .quiz-proof {
+  margin-bottom: 16px;
+}  
+    
     .trust-badge .check {
       font-size: 18px;
       flex-shrink: 0;
@@ -498,7 +512,10 @@
  <img src="./imagensquiz/logo.jpg" alt="Logo">
 </div>
     <p class="intro-tag">Quiz de 1 minuto</p>
+ 
     <h1 class="intro-title">Quantos anos você tem? <br/>
+
+      
 
     <div class="age-grid">
       <div class="age-card" onclick="selectAge('- de 35 anos')">
@@ -613,9 +630,7 @@
   </h1>
 </div>
     <div class="video-wrapper">
-     <vturb-smartplayer id="vid-69bf0f61596c6131b73ecf4e" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
-      <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/27d65a4a-43f3-4eda-8975-c299df6e2f47/players/69bf0f61596c6131b73ecf4e/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
-    </div>
+        </div>
   </div>
 
 <script>
@@ -814,9 +829,29 @@
     }, INTERVAL);
   }
 
-  function showVideoPage() {
-    showScreen('videopage');
-  }
+ function showVideoPage() {
+  showScreen('videopage');
+
+  const container = document.getElementById('video-container');
+
+  // evita duplicar
+  if (container.innerHTML !== '') return;
+
+  setTimeout(() => {
+    container.innerHTML = `
+      <vturb-smartplayer 
+        id="vid-69bf0f61596c6131b73ecf4e" 
+        style="display:block; margin:0 auto; width:100%; max-width:400px;">
+      </vturb-smartplayer>
+    `;
+
+    const script = document.createElement("script");
+    script.src = "https://scripts.converteai.net/27d65a4a-43f3-4eda-8975-c299df6e2f47/players/69bf0f61596c6131b73ecf4e/v4/player.js";
+    script.async = true;
+
+    document.head.appendChild(script);
+  }, 300);
+}
 </script>
 </body>
 </html>
