@@ -45,6 +45,45 @@
       margin-bottom: 28px;
     }
 
+     .quiz-proof {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .quiz-proof-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #e5e7eb;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .quiz-proof-icon {
+    width: 22px;
+    height: 22px;
+    background: #22c55e;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .quiz-proof-icon svg {
+    width: 14px;
+    height: 14px;
+    color: white;
+  }
+
+  .quiz-proof strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
     .logo {
       width: 52px;
       height: 52px;
@@ -62,6 +101,35 @@
     /* ─── INTRO ─── */
     #intro { text-align: center; }
 
+ .headline-wrapper {
+    text-align: center;
+    padding: 20px 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #ffffff;
+    line-height: 1.4;
+  }
+
+  .headline-wrapper h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .highlight {
+    background: #ff0000;
+    color: #ffffff;
+    padding: 4px 8px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  @media (min-width: 768px) {
+    .headline-wrapper h1 {
+      font-size: 28px;
+    }
+  }
+
+    
     .intro-tag {
       font-size: 11px;
       font-weight: 700;
@@ -428,6 +496,37 @@
       </div>
     </div>
 
+    <div class="quiz-proof">
+  
+  <div class="quiz-proof-item">
+    <div class="quiz-proof-icon">
+      <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+        <path d="M5 13l4 4L19 7"/>
+      </svg>
+    </div>
+    <span><strong>Aprovado</strong> por mais de 37.000 homens no Brasil</span>
+  </div>
+
+  <div class="quiz-proof-item">
+    <div class="quiz-proof-icon">
+      <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+        <path d="M5 13l4 4L19 7"/>
+      </svg>
+    </div>
+    <span>Respostas <strong>100% anônimas</strong></span>
+  </div>
+
+  <div class="quiz-proof-item">
+    <div class="quiz-proof-icon">
+      <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+        <path d="M5 13l4 4L19 7"/>
+      </svg>
+    </div>
+    <span>Verificado por especialistas</span>
+  </div>
+
+</div>
+
     <p class="terms">
       Ao continuar, você concorda com nossos
       <a href="#">Termos de Uso</a>,
@@ -480,18 +579,15 @@
 
   <!-- ══════════ PÁGINA DE VÍDEO ══════════ -->
   <div class="screen" id="videopage">
-    <p class="vp-title">
-      Descubra como receber a sua <u>receita personalizada</u><br>
-      para <u>levantar o "amigão"</u> ainda hoje
-    </p>
+ <div class="headline-wrapper">
+  <h1>
+    <span class="highlight">Especialista dos atores adultos revela:</span>
+    "Se você tem bicarbonato de sódio em casa, não compre mais azulzinho"
+  </h1>
+</div>
     <div class="video-wrapper">
-      <vturb-smartplayer id="vid-6939af6006cad134dd31e3a0" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
-      <script type="text/javascript">
-        var s = document.createElement("script");
-        s.src = "https://scripts.converteai.net/27d65a4a-43f3-4eda-8975-c299df6e2f47/players/6939af6006cad134dd31e3a0/v4/player.js";
-        s.async = true;
-        document.head.appendChild(s);
-      </script>
+     <vturb-smartplayer id="vid-69bf0f61596c6131b73ecf4e" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+      <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/27d65a4a-43f3-4eda-8975-c299df6e2f47/players/69bf0f61596c6131b73ecf4e/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
     </div>
   </div>
 
