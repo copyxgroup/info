@@ -115,46 +115,31 @@
       margin-top: 4px;
     }
   
-  /* Container que empilha os novos botões */
-  .item-buy-dual { 
+
+  /* Substituímos a lógica do botão antigo pela nova */
+  .item-buy { 
     display: flex; 
     flex-direction: column; 
     gap: 8px; 
-    margin-top: 15px; 
+    padding: 10px 0;
   }
-
-  /* Botão base */
   .btn-custom { 
     display: block; 
     width: 100%; 
-    padding: 12px 5px; 
+    padding: 12px; 
     border-radius: 5px; 
-    font-weight: 700; 
-    text-decoration: none !important; /* !important garante que não pegue links padrão */
+    font-weight: 800; 
+    text-decoration: none !important; 
     text-align: center; 
-    font-size: 14px; 
-    transition: all 0.2s;
+    font-size: 14px;
+    color: #000;
   }
-
-  /* Estilos específicos */
-  .btn-card { 
-    background-color: #ffc107; 
-    color: #000; 
-    border: 1px solid #d39e00;
-  }
+  .btn-card { background-color: #ffc107; border: 1px solid #d39e00; }
+  .btn-delivery { background-color: #28a745; color: #fff; border: 1px solid #1e7e34; }
   
-  .btn-delivery { 
-    background-color: #28a745; 
-    color: #fff; 
-    border: 1px solid #1e7e34;
-  }
-
-  /* Efeito hover para feedback de clique */
-  .btn-custom:hover { 
-    filter: brightness(1.1); 
-    transform: translateY(-2px); 
-    color: inherit;
-  }
+  /* Ajuste para alinhar com o design original */
+  .item .wrapper { padding: 15px; }
+  .item-info { text-align: center; }
   </style>
 
   <script
@@ -273,7 +258,7 @@
       <div class="vmask d-none d-md-block"></div>
     </div>
 
- <section class="py-4 products negative-top-margin">
+<section class="py-4 products negative-top-margin">
   <div class="container">
     <div class="row align-items-center" id="kit">
 
@@ -294,7 +279,7 @@
                 <div><span>+SPEDIZIONE GRATUITA</span></div>
               </div>
             </div>
-            <div class="item-buy-dual">
+            <div class="item-buy">
               <a href="https://www.auravita-it.shop/cart/45403421999148:1?attributes%5Bref%5D=yjziymq1&ref=yjziymq1" class="btn-custom btn-card">MEGA SCONTO CON CARTA</a>
               <a href="https://www.auravita-eu.shop/mm-it-afv3/05flaconi?ref=yjziymq1" class="btn-custom btn-delivery">PAGAMENTO ALLA CONSEGNA</a>
             </div>
@@ -318,7 +303,7 @@
                 <div><span>+SPEDIZIONE GRATUITA</span></div>
               </div>
             </div>
-            <div class="item-buy-dual">
+            <div class="item-buy">
               <a href="https://www.auravita-it.shop/cart/45403420753964:1?attributes%5Bref%5D=yjziymq1&ref=yjziymq1" class="btn-custom btn-card">MEGA SCONTO CON CARTA</a>
               <a href="https://www.auravita-eu.shop/mm-it-afv3/03flaconi?ref=yjziymq1&utm_source=organic&utm_campaign=&utm_medium=&utm_content=&utm_term=" class="btn-custom btn-delivery">PAGAMENTO ALLA CONSEGNA</a>
             </div>
@@ -342,7 +327,7 @@
                 <div><span>+SPEDIZIONE GRATUITA</span></div>
               </div>
             </div>
-            <div class="item-buy-dual">
+            <div class="item-buy">
               <a href="https://www.auravita-it.shop/cart/45403404173356:1?attributes%5Bref%5D=yjziymq1&ref=yjziymq1" class="btn-custom btn-card">MEGA SCONTO CON CARTA</a>
               <a href="https://www.auravita-eu.shop/mm-it-afv3/01flacone?ref=yjziymq1" class="btn-custom btn-delivery">PAGAMENTO ALLA CONSEGNA</a>
             </div>
