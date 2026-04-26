@@ -52,90 +52,99 @@
 <link rel="dns-prefetch" href="https://api.vturb.com.br">
 
   <style>
-    .fb-comments {
-      background: #fff;
-      border-radius: 8px;
-      border: 1px solid #e5e5e5;
-      padding: 15px;
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .fb-comments-header {
-      font-weight: bold;
-      color: #606770;
-      border-bottom: 1px solid #e5e5e5;
-      padding-bottom: 8px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .fb-comments-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .fb-comment {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    .fb-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    }
-
-    .fb-comment-body {
-      background: #f0f2f5;
-      padding: 10px 12px;
-      border-radius: 18px;
-      flex: 1;
-    }
-
-    .fb-name {
-      font-weight: 600;
-      color: #1c1e21;
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    .fb-text {
-      color: #050505;
-    }
-
-    .fb-footer {
-      font-size: 12px;
-      color: #65676b;
-      margin-top: 4px;
-    }
-  
-  .btn-delivery-alt {
+  /* --- SEU CSS ORIGINAL (Comentários de Seção) --- */
+  .fb-comments {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+    padding: 15px;
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .fb-comments-header {
+    font-weight: bold;
+    color: #606770;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .fb-comments-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .fb-comment {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .fb-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .fb-comment-body {
+    background: #f0f2f5;
+    padding: 10px 12px;
+    border-radius: 18px;
+    flex: 1;
+  }
+  .fb-name {
+    font-weight: 600;
+    color: #1c1e21;
     display: block;
-    background: #28a745; /* Verde */
-    color: #fff;
-    padding: 10px;
-    margin-top: 8px; /* Espaço entre o botão amarelo e este */
-    border-radius: 4px;
-    text-align: center;
-    font-weight: 800;
-    text-decoration: none !important;
-    font-size: 14px;
-    border: 2px solid #218838;
+    margin-bottom: 2px;
   }
-  .btn-delivery-alt:hover {
-    background: #218838;
-    color: #fff;
+  .fb-text {
+    color: #050505;
   }
-  /* Garante que o botão original não tenha comportamento estranho */
-  .item-buy .button { margin-bottom: 0 !important; }
+  .fb-footer {
+    font-size: 12px;
+    color: #65676b;
+    margin-top: 4px;
+  }
 
-  </style>
+  /* --- SEU CSS NOVO (Ajustes dos Botões) --- */
+  /* Remove o sublinhado e garante que pareçam botões */
+  .button {
+    display: block !important;
+    text-decoration: none !important;
+    margin-bottom: 10px !important;
+    cursor: pointer;
+  }
+  
+  /* Botão Verde de Contra Entrega */
+  .button-delivery {
+    background-color: #28a745 !important; /* Verde */
+    border-color: #218838 !important;
+    color: #fff !important;
+  }
+  
+  /* Ajuste para o container dos botões não ficar bagunçado */
+  .item-buy {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Garante que o texto dentro dos botões fique centralizado */
+  .item-buy .button div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Garante que o card não tenha cursor de link (já que removemos o <a> pai) */
+  .item {
+    cursor: default;
+  }
+</style>
 
   <script
   src="https://cdn.utmify.com.br/scripts/utms/latest.js"
@@ -258,11 +267,11 @@
     <div class="row align-items-center" id="kit">
 
       <div class="col-12 col-md-4 mb-3 order-md-2">
-        <a href="https://www.auravita-it.shop/cart/45403421999148:1?attributes%5Bref%5D=yjziymq1&ref=yjziymq1" class="item promo buylink kit3">
+        <div class="item promo kit3">
           <div class="wrapper">
             <div class="item-header">MIGLIOR VALORE!</div>
             <div class="item-img">
-              <div class="supply"><b>5 FLACONI</b>FORNITURA PER 150 GIORNI</div>
+              <div class="supply"><b>5 FLACONI</b><br>FORNITURA PER 150 GIORNI</div>
               <img src="images/kit6.png" alt="5 Flaconi">
             </div>
             <div class="item-info">
@@ -270,24 +279,23 @@
               <div class="savings">
                 <div><span>RISPARMI 343 €!</span></div>
                 <div><span>SCONTO MASSIMO</span></div>
-                <div><span>GARANZIA 60 GIORNI</span></div>
               </div>
             </div>
             <div class="item-buy">
-              <div class="button"><span>MEGA SCONTO CON CARTA</span></div>
-              <a href="https://www.auravita-eu.shop/mm-it-afv3/05flaconi?ref=yjziymq1" class="btn-delivery-alt" onclick="event.stopPropagation();">PAGAMENTO ALLA CONSEGNA</a>
+              <a href="https://www.auravita-it.shop/cart/45403421999148:1?attributes%5Bref%5D=yjziymq1&ref=yjziymq1" class="button"><div><span>MEGA SCONTO CON CARTA</span></div></a>
+              <a href="https://www.auravita-eu.shop/mm-it-afv3/05flaconi?ref=yjziymq1" class="button button-delivery"><div><span>PAGAMENTO ALLA CONSEGNA</span></div></a>
               <img src="images/cards-dark.webp" alt="Carte" class="card-flags">
             </div>
           </div>
-        </a>
+        </div>
       </div>
 
       <div class="col-12 col-md-4 mb-3 order-md-3">
-        <a href="https://www.auravita-it.shop/cart/45403420753964:1?attributes%5Bref%5D=yjziymq1&ref=yjziymq1" class="item buylink kit2">
+        <div class="item kit2">
           <div class="wrapper">
             <div class="item-header">Più Popolare</div>
             <div class="item-img">
-              <div class="supply"><b>3 FLACONI</b>FORNITURA PER 90 GIORNI</div>
+              <div class="supply"><b>3 FLACONI</b><br>FORNITURA PER 90 GIORNI</div>
               <img src="images/kit3.png" alt="3 Flaconi">
             </div>
             <div class="item-info">
@@ -295,24 +303,23 @@
               <div class="savings">
                 <div><span>RISPARMI 196 €!</span></div>
                 <div><span>GRANDE SCONTO</span></div>
-                <div><span>GARANZIA 60 GIORNI</span></div>
               </div>
             </div>
             <div class="item-buy">
-              <div class="button"><span>MEGA SCONTO CON CARTA</span></div>
-              <a href="https://www.auravita-eu.shop/mm-it-afv3/03flaconi?ref=yjziymq1&utm_source=organic" class="btn-delivery-alt" onclick="event.stopPropagation();">PAGAMENTO ALLA CONSEGNA</a>
+              <a href="https://www.auravita-it.shop/cart/45403420753964:1?attributes%5Bref%5D=yjziymq1&ref=yjziymq1" class="button"><div><span>MEGA SCONTO CON CARTA</span></div></a>
+              <a href="https://www.auravita-eu.shop/mm-it-afv3/03flaconi?ref=yjziymq1&utm_source=organic" class="button button-delivery"><div><span>PAGAMENTO ALLA CONSEGNA</span></div></a>
               <img src="images/cards.webp" alt="Carte" class="card-flags">
             </div>
           </div>
-        </a>
+        </div>
       </div>
 
       <div class="col-12 col-md-4 mb-3 order-md-1">
-        <a href="https://www.auravita-it.shop/cart/45403404173356:1?attributes%5Bref%5D=yjziymq1&ref=yjziymq1" class="item buylink kit1">
+        <div class="item kit1">
           <div class="wrapper">
             <div class="item-header">Base</div>
             <div class="item-img">
-              <div class="supply"><b>1 FLACONE</b>FORNITURA PER 30 GIORNI</div>
+              <div class="supply"><b>1 FLACONE</b><br>FORNITURA PER 30 GIORNI</div>
               <img src="images/kit2.png" alt="1 Flacone">
             </div>
             <div class="item-info">
@@ -320,16 +327,15 @@
               <div class="savings">
                 <div><span>RISPARMI 69 €!</span></div>
                 <div><span>GRANDE SCONTO</span></div>
-                <div><span>GARANZIA 60 GIORNI</span></div>
               </div>
             </div>
             <div class="item-buy">
-              <div class="button"><span>MEGA SCONTO CON CARTA</span></div>
-              <a href="https://www.auravita-eu.shop/mm-it-afv3/01flacone?ref=yjziymq1" class="btn-delivery-alt" onclick="event.stopPropagation();">PAGAMENTO ALLA CONSEGNA</a>
+              <a href="https://www.auravita-it.shop/cart/45403404173356:1?attributes%5Bref%5D=yjziymq1&ref=yjziymq1" class="button"><div><span>MEGA SCONTO CON CARTA</span></div></a>
+              <a href="https://www.auravita-eu.shop/mm-it-afv3/01flacone?ref=yjziymq1" class="button button-delivery"><div><span>PAGAMENTO ALLA CONSEGNA</span></div></a>
               <img src="images/cards.webp" alt="Carte" class="card-flags">
             </div>
           </div>
-        </a>
+        </div>
       </div>
 
     </div>
