@@ -58,7 +58,7 @@
 
 
 <script>
-  var delaySeconds = 5;
+  var delaySeconds = 2945;
   var player = document.querySelector("vturb-smartplayer");
   player.addEventListener("player:ready", function() {
     player.displayHiddenElements(delaySeconds, [".esconder"], {
@@ -175,7 +175,7 @@
       </div>
     </div>
 
-    <!-- Comments section -->
+   <!-- Comments section -->
     <div class="comments-section">
       <div class="comments-container">
         <div class="comments-header">
@@ -192,14 +192,10 @@
         </div>
 
         <div class="add-comment">
-          <div class="comment-input-container">
-            <img src="images/perfil.jpg" alt="Seu perfil" class="user-avatar-img" width="32" height="32">
-            <div class="input-area">
+          <div class="comment-input-container" style="display: block;">
+            <div class="input-area" style="width: 100%;">
               <input type="text" placeholder="Aggiungi un commento..." class="comment-input" id="newCommentInput" aria-label="Campo para digitar comentário">
-              <div class="input-actions">
-                <label class="facebook-checkbox">
-                  <input type="checkbox" id="postToFacebook"> Pubblicare
-                </label>
+              <div class="input-actions" style="margin-top: 10px; display: flex; justify-content: flex-end;">
                 <button class="post-btn" id="postCommentBtn" disabled="" type="button">Pubblica</button>
               </div>
             </div>
@@ -211,6 +207,8 @@
         <div class="load-more-container">
           <button class="load-more-btn" type="button">Carica più commenti</button>
         </div>
+      </div>
+    </div>
 
         <div class="facebook-plugin" aria-hidden="true">
           <div class="facebook-icon">f</div>
