@@ -46,10 +46,39 @@
       <h1 class="headline-text"></h1>
     </div>
 
-    <!-- Video section -->
-    <div class="video-container">
-<iframe id="panda-090a29fd-5641-4b88-bcc7-cce60bf96394" src="https://player-vz-456477f6-1bd.tv.pandavideo.com.br/embed/?v=090a29fd-5641-4b88-bcc7-cce60bf96394" style="border:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen=true width="720" height="360" fetchpriority="high"></iframe>
+   <!-- Container do Vídeo Responsivo (Enquadrado perfeitamente na largura) -->
+<div style="position: relative; width: 100%; max-width: 100%; margin: 0 auto; overflow: hidden; border-radius: 8px;">
+  <div style="position: relative; width: 100%; padding-top: 56.25%;">
+    <iframe id="panda-090a29fd-5641-4b88-bcc7-cce60bf96394" src="https://player-vz-456477f6-1bd.tv.pandavideo.com.br/embed/?v=090a29fd-5641-4b88-bcc7-cce60bf96394" style="border:none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen="true" fetchpriority="high"></iframe>
+  </div>
+</div>
 
+<!-- Script Oficial da Panda Video para Delay dos Botões -->
+<script src="https://player-vz-456477f6-1bd.tv.pandavideo.com.br/embed/smart-player-score.js"></script>
+<script>
+  // Tempo em segundos para liberar os botões (2945 segundos)
+  var _delaySeconds = 5;
+  
+  window.pandaIframeReady = window.pandaIframeReady || [];
+  window.pandaIframeReady.push(function() {
+    var player = document.getElementById("panda-090a29fd-5641-4b88-bcc7-cce60bf96394");
+    
+    // Escuta o progresso do player da Panda
+    window.addEventListener("message", function(event) {
+      if (event.origin.indexOf("pandavideo.com.br") === -1) return;
+      try {
+        var data = JSON.parse(event.data);
+        if (data.message === "timeupdate" && data.currentTime >= _delaySeconds) {
+          // Revela os elementos escondidos
+          var hiddenElements = document.querySelectorAll(".esconder");
+          hiddenElements.forEach(function(el) {
+            el.classList.remove("esconder");
+          });
+        }
+      } catch(e) {}
+    });
+  });
+</script>
       <style>
   .esconder {
     display: none;
