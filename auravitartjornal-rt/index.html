@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novinky.cz</title>
+
+  <!-- Vturb SmartPlayer Scripts -->
+  <script>!function (i, n) { i._plt = i._plt || (n && n.timeOrigin ? n.timeOrigin + n.now() : Date.now()) }(window, performance);</script>
+  <link rel="preload"
+    href="https://scripts.converteai.net/78dde86a-ee07-427a-942f-58e3149a044c/players/697cce625c7f3683791c3e67/v4/player.js"
+    as="script">
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+  <link rel="preload"
+    href="https://cdn.converteai.net/78dde86a-ee07-427a-942f-58e3149a044c/696f7fe3edc67029da1c8ff2/main.m3u8"
+    as="fetch">
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+  <!-- Code -->
+  <script type="text/javascript" src="https://bio.vitalonglife.shop/track.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background-color: #fff;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      width: 22px;
+      height: 2px;
+      background-color: #1a1a1a;
+    }
+
+    .logo {
+      height: 24px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-link {
+      font-size: 14px;
+      text-decoration: none;
+      color: #e4405f;
+      font-weight: 500;
+    }
+
+    .header-link.seznam {
+      color: #e4405f;
+    }
+
+    /* Article */
+    .article {
+      padding: 0 16px 24px;
+    }
+
+    .article-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 26px;
+      font-weight: bold;
+      line-height: 1.35;
+      margin-bottom: 12px;
+      color: #1a1a1a;
+    }
+
+    .article-date {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .article-image {
+      width: calc(100% + 32px);
+      margin-left: -16px;
+      margin-right: -16px;
+    }
+
+    .article-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 24px 16px;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 24px;
+    }
+
+    .footer-links {
+      text-align: center;
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+
+    .footer-links a {
+      color: #e4405f;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links .separator {
+      color: #999;
+      margin: 0 4px;
+      font-size: 14px;
+    }
+
+    .footer-copyright {
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Estilos do botão CTA com pulsação e brilho */
+    .cta-pulse-button {
+      animation: pulseGlow 2s ease-in-out infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .cta-pulse-button:hover {
+      transform: scale(1.05);
+    }
+
+    .cta-pulse-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4), 0 0 0 0 rgba(76, 175, 80, 0.7);
+        transform: scale(1);
+      }
+
+      50% {
+        box-shadow: 0 4px 20px rgba(76, 175, 80, 0.6), 0 0 0 10px rgba(76, 175, 80, 0);
+        transform: scale(1.02);
+      }
+    }
+
+    @keyframes shine {
+      0% {
+        left: -100%;
+      }
+
+      50%,
+      100% {
+        left: 100%;
+      }
+    }
+  </style>
+
+  <script>
+    window.pixelId = "6966c9e52eec1b06f32fe176";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids
+    async defer></script>
+
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <img src="https://d39-a.sdn.cz/d_39/c_static_QJ_P/NnDBK/novinky-logo.svg" alt="Novinky.cz" class="logo">
+    </div>
+    <div class="header-right">
+      <a href="#" class="header-link seznam">Seznam.cz</a>
+      <a href="#" class="header-link">Přihlásit se</a>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <h1 class="article-title">Neurovědecký objev: Medový trik, který čistí mozkový 'plak' a umožňuje obnovit 15 let
+      paměti během několika týdnů</h1>
+
+    <p class="article-date">Dnes 19:12</p>
+
+    <div class="article-image">
+
+      <!-- Vturb SmartPlayer Loader Script -->
+      <vturb-smartplayer id="vid-697cce625c7f3683791c3e67"
+        style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+      <script
+        type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/78dde86a-ee07-427a-942f-58e3149a044c/players/697cce625c7f3683791c3e67/v4/player.js", s.async = !0, document.head.appendChild(s); </script>
+
+      <!-- Botão CTA - aparece no minuto 33:04 -->
+      <div id="cta-button-video" style="display: none; text-align: center; margin: 30px auto; max-width: 400px;">
+        <a href="https://bio.vitalonglife.shop/click/1" class="cta-pulse-button"
+          style="display: inline-block; background: #4CAF50; color: #fff; padding: 18px 40px; border-radius: 12px; font-size: 18px; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4); position: relative; overflow: hidden;">
+          <span style="position: relative; z-index: 2;">ZAKOUPIT TERAPII AURAVITA</span>
+        </a>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">Facebook</a><span class="separator">|</span>
+      <a href="#">Twitter</a><span class="separator">|</span>
+      <a href="#">Reklama</a><span class="separator">|</span>
+      <a href="#">Kariéra</a><span class="separator">|</span>
+      <a href="#">Tiráž</a><span class="separator">|</span>
+      <a href="#">Mediální akademie</a><span class="separator">|</span>
+      <a href="#">Etický kodex</a><span class="separator">|</span>
+      <a href="#">Ochrana údajů</a><span class="separator">|</span>
+      <a href="#">Odvolat souhlas</a><span class="separator">|</span>
+      <a href="#">Nastavení personalizace</a>
+    </div>
+    <div class="footer-copyright">
+      Copyright © 2003-2026 Borgis a.s. &nbsp;&nbsp; Copyright © 2019-2026 Seznam.cz a.s. &nbsp;&nbsp; Copyright © ČTK,
+      DPA, Reuters a fotobanka Profimedia
+    </div>
+  </footer>
+
+  <script>
+    // Mostrar botão CTA após 33 minutos e 04 segundos (1984 segundos)
+    // Página: auravitartjornal-rt
+    // ID do vídeo: vid-697cce625c7f3683791c3e67
+    (function () {
+      var buttonShown = false;
+      var ctaButton = document.getElementById('cta-button-video');
+      var videoId = '697cce625c7f3683791c3e67';
+
+      function checkVideoTime() {
+        if (buttonShown) return;
+
+        if (typeof smartplayer !== 'undefined' && smartplayer.instances && smartplayer.instances[0]) {
+          var currentTime = smartplayer.instances[0].video.currentTime;
+
+          if (currentTime >= 1984) {
+            ctaButton.style.display = 'block';
+            buttonShown = true;
+            localStorage.setItem('ctaButtonShown_' + videoId, 'true');
+          }
+        } else {
+          setTimeout(checkVideoTime, 500);
+        }
+      }
+
+      // Verificar se já foi mostrado antes
+      if (localStorage.getItem('ctaButtonShown_' + videoId) === 'true') {
+        ctaButton.style.display = 'block';
+        buttonShown = true;
+      } else {
+        // Aguardar o player carregar
+        setTimeout(function () {
+          if (typeof smartplayer !== 'undefined' && smartplayer.instances && smartplayer.instances[0]) {
+            smartplayer.instances[0].on('timeupdate', checkVideoTime);
+          } else {
+            var checkInterval = setInterval(function () {
+              if (typeof smartplayer !== 'undefined' && smartplayer.instances && smartplayer.instances[0]) {
+                smartplayer.instances[0].on('timeupdate', checkVideoTime);
+                clearInterval(checkInterval);
+              }
+            }, 500);
+          }
+        }, 1000);
+      }
+    })();
+  </script>
+
+</html>
