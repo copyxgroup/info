@@ -496,8 +496,17 @@
       <script
         type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/78dde86a-ee07-427a-942f-58e3149a044c/players/697cce625c7f3683791c3e67/v4/player.js", s.async = !0, document.head.appendChild(s); </script>
 
-     <div class="esconder">
-  <div class="esconder">
+<script>
+  var delaySeconds = 2945;
+  var player = document.querySelector("vturb-smartplayer");
+  player.addEventListener("player:ready", function() {
+    player.displayHiddenElements(delaySeconds, [".esconder"], {
+      persist: true
+    });
+  });
+</script>
+      
+   <div class="esconder">
     <!-- ===== BLOCO DE KITS (REPÚBLICA TCHECA) ===== -->
     <section class="kits-section">
       <div class="kits-section-header">
