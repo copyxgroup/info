@@ -521,7 +521,7 @@
               </div>
             </div>
           </div>
-          <a href="https://www.vitalis-eu.shop/vit-cz/05Lahvicky?fn=AFF-WL-TCH&ref=yjziymqf&utm_src=9783d6bc-ec66-4245-b177-e4384bbb5a23" target="_blank" class="kit-btn kit-btn--consegna">OBJEDNAT NA DOBÍRKU</a>
+          <a href="https://www.vitalis-eu.shop/vit-cz/05Lahvicky?fn=AFF-WL-TCH&ref=yjziymqf&utm_src=9783d6bc-ec66-4245-b177-e4384bbb5a23" target="_blank" class="kit-btn kit-btn--consegna btn-purchase">OBJEDNAT NA DOBÍRKU</a>
         </div>
 
         <!-- KIT 2: 2+1 ZDARMA / 3 LAHVIČKY (DIREITA) -->
@@ -550,7 +550,7 @@
               </div>
             </div>
           </div>
-          <a href="https://www.vitalis-eu.shop/vit-cz/03Lahvicky?fn=AFF-WL-TCH&ref=yjziymqf&utm_src=9783d6bc-ec66-4245-b177-e4384bbb5a23" target="_blank" class="kit-btn kit-btn--consegna">OBJEDNAT NA DOBÍRKU</a>
+          <a href="https://www.vitalis-eu.shop/vit-cz/03Lahvicky?fn=AFF-WL-TCH&ref=yjziymqf&utm_src=9783d6bc-ec66-4245-b177-e4384bbb5a23" target="_blank" class="kit-btn kit-btn--consegna btn-purchase">OBJEDNAT NA DOBÍRKU</a>
         </div>
 
         <!-- KIT 3: 1 LAHVIČKA (ESQUERDA) -->
@@ -578,13 +578,28 @@
               </div>
             </div>
           </div>
-          <a href="https://www.vitalis-eu.shop/vit-cz/01Lahvicka?fn=AFF-WL-TC&ref=yjziymqf&utm_src=9783d6bc-ec66-4245-b177-e4384bbb5a23" target="_blank" class="kit-btn kit-btn--consegna">OBJEDNAT NA DOBÍRKU</a>
+          <a href="https://www.vitalis-eu.shop/vit-cz/01Lahvicka?fn=AFF-WL-TC&ref=yjziymqf&utm_src=9783d6bc-ec66-4245-b177-e4384bbb5a23" target="_blank" class="kit-btn kit-btn--consegna btn-purchase">OBJEDNAT NA DOBÍRKU</a>
         </div>
 
       </div>
     </section>
     <!-- ===== FIM BLOCO DE KITS ===== -->
-  </div>
+
+<!-- Script de rastreamento do Initiate Checkout -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.addEventListener('click', function(event) {
+      var targetButton = event.target.closest('.btn-purchase');
+      if (targetButton) {
+        if (typeof window.utmify !== 'undefined' && typeof window.utmify.track === 'function') {
+          window.utmify.track('InitiateCheckout');
+        } else if (typeof UTMIFY !== 'undefined' && typeof UTMIFY.track === 'function') {
+          UTMIFY.track('InitiateCheckout');
+        }
+      }
+    });
+  });
+</script>
     </div>
   </article>
 
