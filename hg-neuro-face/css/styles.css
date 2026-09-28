@@ -18,7 +18,9 @@ img { max-width: 100%; height: auto; display: block; }
 .min-h-screen { min-height: 100vh; }
 .bg-background { background-color: #ffffff; }
 
-/* Barra Superior Animada (Marquee) */
+/* =====================================================
+   TOPO: BARRA SUPERIOR PROEMINENTE + TICKER
+   ================================================     */
 .header-ticker {
   background-color: #b80000;
   color: #fff;
@@ -27,20 +29,29 @@ img { max-width: 100%; height: auto; display: block; }
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
-  padding: 10px 0;
   display: flex;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 10;
 }
 
 .ticker-title {
-  background-color: #900;
+  background-color: #800000;
   color: #fff;
-  padding: 10px 15px;
-  margin-right: 15px;
+  padding: 12px 20px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  z-index: 2;
+  letter-spacing: 1px;
+  font-weight: 900;
+  font-size: 15px;
+  flex-shrink: 0;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+}
+
+.ticker-container-scroll {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
 }
 
 .ticker-wrap {
@@ -98,7 +109,7 @@ img { max-width: 100%; height: auto; display: block; }
 .sound-notice { text-align: center; font-size: 12px; color: hsl(0 0% 45%); margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 4px; }
 
 /* =====================================================
-    BLOCO DE KITS
+    BLOCO DE KITS (ESTÉTICA E-COMMERCE LOCAL)
    ===================================================== */
 .kits-section {
   background: #fff;
@@ -134,7 +145,7 @@ img { max-width: 100%; height: auto; display: block; }
 .kit-card {
   background: #fff;
   border-radius: 16px;
-  padding: 20px 20px 20px;
+  padding: 20px;
   color: #1a1a2e;
   display: flex;
   flex-direction: column;
@@ -144,11 +155,11 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .kit-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgb(0 0 0 / .1); }
 
-/* Textos escuros nos cards brancos */
+/* Textos nos cards */
 .kit-popular .kit-headline,
 .kit-basic .kit-headline { color: #1a1a2e; }
 .kit-popular .kit-price,
-.kit-basic .kit-price { color: #1a1a2e; }
+.kit-basic .kit-price { color: #1a1a2e; white-space: nowrap; }
 .kit-popular .kit-arrow,
 .kit-basic .kit-arrow { color: #888; }
 .kit-popular .kit-benefits li,
@@ -182,7 +193,7 @@ img { max-width: 100%; height: auto; display: block; }
 .kit-badge--secondary { background: #7b5ea7; color: #fff; }
 .kit-badge--basic     { background: #3a3a6a; color: #aaa; }
 
-/* Layout interno: topo com headline/duration, depois linha imagem+benefícios */
+/* Layout interno */
 .kit-inner {
   display: flex;
   flex-direction: column;
@@ -191,7 +202,6 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 12px;
 }
 
-/* Headline e duration ficam no topo, alinhados à esquerda */
 .kit-left {
   display: flex;
   flex-direction: column;
@@ -228,31 +238,32 @@ img { max-width: 100%; height: auto; display: block; }
   width: 100%;
 }
 
-/* Área da imagem — aumentada em 30% */
+/* Área da imagem (30% maior) */
 .kit-image-wrap {
-  flex: 0 0 50%;
+  flex: 0 0 45%;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 150px;
+  min-height: 140px;
 }
 
 .kit-img {
   width: 100%;
-  max-width: 182px;  /* Aumentado ~30% */
-  min-width: 130px;  /* Aumentado ~30% */
+  max-width: 160px;
+  min-width: 120px;
   height: auto;
   object-fit: contain;
   display: block;
   filter: drop-shadow(0 4px 10px rgb(0 0 0 / .15));
 }
 
-/* Coluna direita: preço + benefícios */
+/* Coluna direita: preço + benefícios (Blindado contra quebra de linha) */
 .kit-right {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  min-width: 0;
 }
 
 .kit-price-wrap {
@@ -260,6 +271,7 @@ img { max-width: 100%; height: auto; display: block; }
   align-items: baseline;
   gap: 4px;
   margin-bottom: 10px;
+  white-space: nowrap; /* Impede que o preço quebre a linha */
 }
 
 .kit-arrow {
@@ -268,10 +280,11 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .kit-price {
-  font-size: 28px;
+  font-size: 22px; /* Ajustado para caber perfeitamente na mesma linha no mobile */
   font-weight: 900;
   color: #1a1a2e;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .kit-featured .kit-price { color: #fff; }
@@ -296,7 +309,7 @@ img { max-width: 100%; height: auto; display: block; }
 .check-orange { font-size: 12px; flex-shrink: 0; }
 .kit-featured .check-white { color: #fff; }
 
-/* Botão consegna */
+/* Botão de compra */
 .kit-btn { text-decoration: none; }
 .kit-btn--consegna {
   width: 100%;
@@ -315,7 +328,7 @@ img { max-width: 100%; height: auto; display: block; }
 .kit-btn--consegna:hover { opacity: .88; transform: translateY(-1px); }
 
 /* =====================================================
-    DESKTOP — grid 3 colunas, destaque no centro
+    DESKTOP
    ===================================================== */
 @media (min-width: 768px) {
   .kits-title { font-size: 28px; }
@@ -331,14 +344,13 @@ img { max-width: 100%; height: auto; display: block; }
   .kit-featured { order: 2; margin-top: -12px; }
   .kit-popular  { order: 3; }
 
-  /* Desktop: layout vertical — tudo empilhado centrado */
   .kit-inner { flex-direction: column; align-items: center; }
   .kit-left  { align-items: center; text-align: center; }
   .kit-middle { flex-direction: column; align-items: center; width: 100%; }
   .kit-image-wrap { justify-content: center; flex: none; width: auto; }
   .kit-right { align-items: center; }
   .kit-benefits { align-items: flex-start; }
-  .kit-price { font-size: 34px; }
+  .kit-price { font-size: 28px; }
 }
 
 /* Brands / Scientific references */
