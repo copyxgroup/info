@@ -1,51 +1,45 @@
 // ==============================
-// main.js – com:
-// - Likes sem "piscar"
-// - Fotos opcionais nos comentários (comment.photo)
-// - Contador de espectadores variando em faixa
-// - Data/Deadline formatada pela localidade/TimeZone do usuário
+// main.js – Húngaro (Neuropatia)
 // ==============================
 
 // ---------- Configs rápidas ----------
 const VIEWER_CONFIG = {
   selector: ".viewer-count",
-  start: 1216,      // número inicial mostrado
-  min: 1180,        // mínimo da faixa
-  max: 1320,        // máximo da faixa
-  stepMin: -10,     // variação mínima por tick
-  stepMax: 10,      // variação máxima por tick
+  start: 1216,       // número inicial mostrado
+  min: 1180,         // mínimo da faixa
+  max: 1320,         // máximo da faixa
+  stepMin: -10,      // variação mínima por tick
+  stepMax: 10,       // variação máxima por tick
   intervalMinMs: 900,   // intervalo mínimo entre ticks
   intervalMaxMs: 1800,  // intervalo máximo entre ticks
 };
 
 const DEADLINE_CONFIG = {
   selector: ".deadline",
-  // 0 = hoje; se quiser "até amanhã", use 1; para 7 dias: 7, etc.
   addDaysFromToday: 0,
-  // formato: "auto" usa ordem do país; "numeric" força dd/mm/aaaa para locais latinos, mm/dd/aaaa para en-US etc.
   format: "numeric",
 };
 
-// ---------- Dados dos comentários ----------
+// ---------- Dados dos comentários (Neuropatia - Húngaro) ----------
 let comments = [
   {
     id: 1,
-    name: "Marek Kowalski",
-    time: "5min",
+    name: "Kovács László",
+    time: "5 perce",
     likes: 132,
     text:
-      "Wow, czuję się naprawdę głupio, że nie odkryłem tych informacji wcześniej. Obejrzałem cały film i w końcu zrozumiałem, co może wpływać na problemy z erekcją. Dziękuję za podzielenie się tą wiedzą.",
-    avatar: "MK",
+      "Hű, nagyon hülyén érzem magam, amiért nem találtam meg ezt az információt korábban. Végignéztem az egész videót, és végre megértettem, mi okozza a zsibbadást és az idegfájdalmat a lábamban. Köszönöm, hogy megosztották ezt!",
+    avatar: "KL",
     liked: false,
     replies: [
       {
         id: 11,
-        name: "Karol Nowak",
-        time: "34min",
+        name: "Nagy Anna",
+        time: "34 perce",
         likes: 58,
         text:
-          "Ja też obejrzałem cały film i muszę przyznać, że otworzył mi oczy. Proste informacje, ale mogą zrobić ogromną różnicę w życiu intymnym mężczyzny.",
-        avatar: "KN",
+          "Én is végignéztem az egész videót, és muszáj beismernem, hogy felnyitotta a szemem. Egyszerű információk, de óriási különbséget jelenthetnek a mindennapokban.",
+        avatar: "NA",
         liked: false
       }
     ]
@@ -53,22 +47,22 @@ let comments = [
 
   {
     id: 2,
-    name: "Adrian Wiśniewski",
-    time: "26min",
+    name: "Szabó Péter",
+    time: "26 perce",
     likes: 102,
     text:
-      "NAJLEPSZA PREZENTACJA, JAKĄ WIDZIAŁEM OD DAWNA! Przez lata myślałem, że problemy z erekcją są po prostu związane z wiekiem. Po obejrzeniu tego filmu całkowicie zmieniłem podejście.",
-    avatar: "AW",
+      "A LEGJOBB BEMUTATÓ, AMIT LÁTTAM ÉVEK ÓTA! Éveken át azt hittem, hogy a zsibbadás egyszerűen az öregedés velejárója. A videó megtekintése után teljesen megváltozott a szemléletem.",
+      avatar: "SZP",
     liked: false,
     replies: [
       {
         id: 21,
-        name: "Szymon Kamiński",
-        time: "39min",
+        name: "Tóth Gábor",
+        time: "39 perce",
         likes: 61,
         text:
-          "Czuję się głupio, że nie zgłębiłem tego tematu wcześniej. To niesamowite, jak bardzo może zmienić się życie mężczyzny, gdy w końcu wie, co robić.",
-        avatar: "SK",
+          "Nagyon örülök, hogy rábukkantam erre. Hihetetlen, hogy egy kis odafigyeléssel mennyire visszanyerhető a komfortérzet.",
+        avatar: "TG",
         liked: false
       }
     ]
@@ -76,44 +70,44 @@ let comments = [
 
   {
     id: 3,
-    name: "Tomasz Zieliński",
-    time: "14min",
+    name: "Horváth Katalin",
+    time: "14 perce",
     likes: 78,
     text:
-      "Zastosowałem się do wskazówek pokazanych w filmie i dziś czuję się dużo pewniej w sypialni. Szkoda, że nie znalazłem tych informacji wcześniej.",
-    avatar: "TZ",
+      "Alkalmaztam a videóban látott tippeket, és ma már sokkal nyugodtabban telnek az éjszakáim zsibbadás nélkül. Kár, hogy nem találtam meg ezt hamarabb.",
+    avatar: "HK",
     liked: false
   },
 
   {
     id: 4,
-    name: "Paweł Lewandowski",
-    time: "19min",
+    name: "Molnár József",
+    time: "19 perce",
     likes: 60,
     text:
-      "Gratulacje za treść. Po obejrzeniu filmu czuję się o wiele spokojniejszy i pewniejszy siebie. Dziękuję za poruszenie tematu, którego tak wielu mężczyzn unika.",
-    avatar: "PL",
+      "Gratulálok a tartalomhoz! A videó után sokkal bizakodóbb vagyok a jövőt illetően. Köszönöm, hogy egy ilyen fontos témáról beszéltek.",
+    avatar: "MJ",
     liked: false
   },
 
   {
     id: 5,
-    name: "Łukasz Wójcik",
-    time: "16min",
+    name: "Varga István",
+    time: "16 perce",
     likes: 146,
     text:
-      "Co za niesamowite odkrycie. W ciągu kilku tygodni poczułem się bardziej energiczny i pewny siebie w sytuacjach intymnych. Szczerze mówiąc, nie sądziłem, że małe zmiany mogą mieć tak duży wpływ.",
-    avatar: "ŁW",
+      "Fantasztikus felfedezés. Néhány hét alatt sokkal energikusabbnak éreztem magam, és a végtagjaim sem zsibbadnak úgy, mint régen. Őszintén szólva nem hittem volna.",
+    avatar: "VI",
     liked: false,
     replies: [
       {
         id: 51,
-        name: "Robert Kaczmarek",
-        time: "46min",
+        name: "Fekete Zoltán",
+        time: "46 perce",
         likes: 63,
         text:
-          "Wow, nie spodziewałem się, że coś tak prostego pomoże mi odzyskać pewność siebie i spokój w życiu intymnym. Naprawdę przydatny film!",
-        avatar: "RK",
+          "Hű, én sem számítottam rá, hogy valami ennyire egyszerű ennyit segít. Valóban nagyon hasznos videó volt!",
+        avatar: "FZ",
         liked: false
       }
     ]
@@ -170,10 +164,10 @@ function commentTemplate(comment, isReply = false) {
             <svg class="thumbs-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
             </svg>
-            Lubię to
+            Tetszik
           </button>
           <button class="comment-action-btn reply-btn" type="button" data-comment-id="${comment.id}" data-is-reply="${isReply ? "true" : "false"}">
-            Odpowiedz
+            Válasz
           </button>
           <span class="comment-likes" data-like-count="${comment.likes}">${comment.likes}</span>
           <span class="comment-time">${comment.time}</span>
@@ -249,18 +243,17 @@ function handlePostComment() {
 
   const newComment = {
     id: Date.now(),
-    name: "Użytkownik",
-    time: "teraz",
+    name: "Felhasználó",
+    time: "most",
     likes: 0,
     text: commentText,
-    avatar: "U",
+    avatar: "F",
     liked: false
-    // photo: "assets/img/imagem01.jpg"
   };
 
   comments.unshift(newComment);
   commentsCount++;
-  if (commentsCountElement) commentsCountElement.textContent = `${commentsCount} komentarze`;
+  if (commentsCountElement) commentsCountElement.textContent = `${commentsCount} hozzászólás`;
 
   const wrapper = document.createElement("div");
   wrapper.innerHTML = commentTemplate(newComment, false);
@@ -278,19 +271,17 @@ function handleInputChange() {
   postCommentBtn.disabled = newCommentInput.value.trim().length === 0;
 }
 
-// ---------- Viewer Count (variação contínua, faixa e formatação local) ----------
+// ---------- Viewer Count ----------
 function startViewerTicker(config = VIEWER_CONFIG) {
   const el = document.querySelector(config.selector);
   if (!el) return;
 
-  const locale = navigator.language || "pl-PL";
+  const locale = "hu-HU";
   let current = Number(el.textContent.replace(/\D+/g, "")) || config.start;
 
-  // Inicial formatação
   el.textContent = current.toLocaleString(locale);
 
   const tick = () => {
-    // passo aleatório entre stepMin e stepMax
     const delta = Math.floor(Math.random() * (config.stepMax - config.stepMin + 1)) + config.stepMin;
     let next = current + delta;
 
@@ -313,29 +304,23 @@ function setLocalizedDeadline(config = DEADLINE_CONFIG) {
   const el = document.querySelector(config.selector);
   if (!el) return;
 
-  const locale = navigator.language || "pl-PL";
-  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
+  const locale = "hu-HU";
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "Europe/Budapest";
 
   const date = new Date();
   date.setDate(date.getDate() + (config.addDaysFromToday || 0));
 
-  // formato numérico (ex.: 16/09/2025 em pt-BR; 09/16/2025 em en-US)
   const numeric = new Intl.DateTimeFormat(locale, {
     timeZone: tz,
-    day: "2-digit",
-    month: "2-digit",
     year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
   }).format(date);
-
-  // formato com mês por extenso (se um dia você quiser alternar)
-  // const long = new Intl.DateTimeFormat(locale, {
-  //   timeZone: tz, day: "2-digit", month: "long", year: "numeric"
-  // }).format(date);
 
   el.textContent = numeric;
 }
 
-// ---------- Lazy para imagens com data-src (mantido) ----------
+// ---------- Lazy para imagens com data-src ----------
 function lazyLoadImages() {
   const images = document.querySelectorAll('img[data-src]');
   if (!images.length) return;
@@ -354,7 +339,6 @@ function lazyLoadImages() {
 
 // ---------- Boot ----------
 document.addEventListener("DOMContentLoaded", () => {
-  // Comentários
   renderCommentsInitial();
   if (newCommentInput) newCommentInput.addEventListener("input", handleInputChange);
   if (postCommentBtn) postCommentBtn.addEventListener("click", handlePostComment);
@@ -362,11 +346,9 @@ document.addEventListener("DOMContentLoaded", () => {
     newCommentInput.addEventListener("keypress", (e) => { if (e.key === "Enter") handlePostComment(); });
   }
 
-  // Vídeo (placeholder)
-  if (continueBtn) continueBtn.addEventListener("click", () => alert("Funkcja wideo: kontynuuj"));
-  if (restartBtn) restartBtn.addEventListener("click", () => alert("Funkcja wideo: od nowa"));
+  if (continueBtn) continueBtn.addEventListener("click", () => alert("Videó funkció: folytatás"));
+  if (restartBtn) restartBtn.addEventListener("click", () => alert("Videó funkció: újból"));
 
-  // Likes — delegação
   if (commentsList) {
     commentsList.addEventListener("click", (e) => {
       const btn = e.target.closest('.like-btn[data-comment-id]');
@@ -378,15 +360,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Viewer count + Deadline localizados
   startViewerTicker(VIEWER_CONFIG);
   setLocalizedDeadline(DEADLINE_CONFIG);
-
-  // Lazy
   lazyLoadImages();
 });
 
-// Smooth scroll (links internos)
+// Smooth scroll
 document.addEventListener("click", (e) => {
   const a = e.target.closest('a[href^="#"]');
   if (!a) return;
