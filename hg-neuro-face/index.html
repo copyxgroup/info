@@ -5,18 +5,78 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <title>Hivatalos Oldal - Idegfájdalom és Neuropátia</title>
-  <meta name="description" content="A okinawai japán módszerszer a neuropátia ellen">
+  <meta name="description" content="A okinawai japán módszer a neuropátia ellen">
   <meta name="author" content="Hivatalos Oldal">
   <meta property="og:title" content="Hivatalos Oldal - Idegfájdalom és Neuropátia">
-  <meta property="og:description" content="A okinawai japán módszerszer a neuropátia ellen">
+  <meta property="og:description" content="A okinawai japán módszer a neuropátia ellen">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <script type="text/javascript" src="js/track.js"></script>
-<script src="js/player.js" async=""></script></head>
+  <script src="js/player.js" async=""></script>
+  <style>
+    /* Estilos preservados e barra superior animada (Marquee) */
+    .header-ticker {
+      background-color: #b80000;
+      color: #fff;
+      font-weight: bold;
+      font-size: 14px;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .ticker-title {
+      background-color: #900;
+      color: #fff;
+      padding: 10px 15px;
+      margin-right: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 2;
+    }
+
+    .ticker-wrap {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 25s linear infinite;
+    }
+
+    .ticker-wrap span {
+      display: inline-block;
+      padding-right: 50px;
+    }
+
+    @keyframes marquee {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+
+    .esconder {
+      display: none;
+    }
+  </style>
+</head>
 <body>
   <div class="min-h-screen bg-background">
+
+    <!-- TOPO: Barra vermelha animada em loop infinito -->
+    <div class="header-ticker">
+      <div class="ticker-title">EGÉSZSÉG</div>
+      <div style="overflow: hidden; width: 100%;">
+        <div class="ticker-wrap">
+          <span>Napi egészség és frissítések</span>
+          <span>Napi egészség és frissítések</span>
+          <span>Napi egészség és frissítések</span>
+          <span>Napi egészség és frissítések</span>
+        </div>
+      </div>
+    </div>
 
     <!-- Header with viewer count and urgency -->
     <div class="header-urgency">
@@ -33,125 +93,129 @@
 
     <!-- Video section -->
     <div class="video-container">
-<vturb-smartplayer id="vid-6aaedd25c9391cd800fd5695" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.5% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/ced55109-ae59-46b5-93a0-279ad8d66831/players/6aaedd25c9391cd800fd5695/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+      <vturb-smartplayer id="vid-6aaedd25c9391cd800fd5695" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;">
+        <div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.5% 0 0; z-index: 0; background-color: black;"></div>
+      </vturb-smartplayer> 
+      
+      <script type="text/javascript"> 
+        var s=document.createElement("script"); 
+        s.src="https://scripts.converteai.net/ced55109-ae59-46b5-93a0-279ad8d66831/players/6aaedd25c9391cd800fd5695/v4/player.js", 
+        s.async=!0,
+        document.head.appendChild(s); 
+      </script>
 
-      <style>
-  .esconder {
-    display: none;
-  }
-</style>
-
-<script>
-  var delaySeconds = 3337;
-  var player = document.querySelector("vturb-smartplayer");
-  player.addEventListener("player:ready", function() {
-    player.displayHiddenElements(delaySeconds, [".esconder"], {
-      persist: true
-    });
-  });
-</script>
+      <!-- Script de delay do VTurb para revelar os kits -->
+      <script>
+        var delaySeconds = 3337;
+        var player = document.querySelector("vturb-smartplayer");
+        player.addEventListener("player:ready", function() {
+          player.displayHiddenElements(delaySeconds, [".esconder"], {
+            persist: true
+          });
+        });
+      </script>
       
       <p class="sound-notice">🔊 Kérjük, ellenőrizze, hogy a hang be van-e kapcsolva.</p>
     </div>
 
     <div class="esconder">
     <!-- ===== BLOCO DE KITS (HÚNGARO - NEUROPATIA) ===== -->
-    <section class="kits-section">
-      <div class="kits-section-header">
-        <h2 class="kits-title">VÁLASSZA KI A CSOMAGJÁT MOST</h2>
-        <p class="kits-subtitle">Használja ki ezt a különleges, korlátozott ideig tartó ajánlatot.</p>
-      </div>
-
-      <div class="kits-grid">
-
-        <!-- KIT 5 flaconi (destaque) -->
-        <div class="kit-card kit-featured">
-          <div class="kit-badge">LEGAJÁNLOTTABB</div>
-          <div class="kit-inner">
-            <div class="kit-left">
-              <p class="kit-headline">5 ÜVEG</p>
-              <p class="kit-duration">150 NAPOS KÉSZLET</p>
-            </div>
-            <div class="kit-middle">
-              <div class="kit-image-wrap">
-                <img src="images/p5.png" alt="5 Üveg csomag" class="kit-img" loading="lazy">
-              </div>
-              <div class="kit-right">
-                <div class="kit-price-wrap">
-                  <span class="kit-arrow">→</span>
-                  <span class="kit-price">18 500 Ft</span>
-                </div>
-                <ul class="kit-benefits">
-                  <li><span class="check-gold">✔</span> <strong>NAGYON JÓ MEGTAKARÍTÁS!</strong></li>
-                  <li><span class="check-white">✔</span> LEGNAGYOBB KEDVEZMÉNY</li>
-                  <li><span class="check-white">✔</span> 90 NAPOS GARANCIA</li>
-                  <li><span class="check-orange">🚚</span> <strong>+INGYENES SZÁLLÍTÁS</strong></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <a href="https://www.aeterna-eu.shop/aet-hun/05uveg?fn=AFF-NR-HUN&ref=yjziymq9i&utm_src=9783d6bc-ec66-4245-b177-e4384bbb5a23" target="_blank" class="kit-btn kit-btn--consegna btn-purchase">🛒 UTÁNVÉTES FIZETÉS</a>
+      <section class="kits-section">
+        <div class="kits-section-header">
+          <h2 class="kits-title">VÁLASSZA KI A CSOMAGJÁT MOST</h2>
+          <p class="kits-subtitle">Használja ki ezt a különleges, korlátozott ideig tartó ajánlatot.</p>
         </div>
 
-        <!-- KIT 3 flaconi (popular) -->
-        <div class="kit-card kit-popular">
-          <div class="kit-badge kit-badge--secondary">LEGNÉPSZERŰBB</div>
-          <div class="kit-inner">
-            <div class="kit-left">
-              <p class="kit-headline">3 ÜVEG</p>
-              <p class="kit-duration">90 NAPOS KÉSZLET</p>
-            </div>
-            <div class="kit-middle">
-              <div class="kit-image-wrap">
-                <img src="images/p3.png" alt="3 Üveg csomag" class="kit-img" loading="lazy">
-              </div>
-              <div class="kit-right">
-                <div class="kit-price-wrap">
-                  <span class="kit-arrow">→</span>
-                  <span class="kit-price">12 900 Ft</span>
-                </div>
-                <ul class="kit-benefits">
-                  <li><span class="check-gold">✔</span> <strong>KIVÁLÓ VÁLASZTÁS</strong></li>
-                  <li><span class="check-white">✔</span> 60 NAPOS GARANCIA</li>
-                  <li><span class="check-orange">🚚</span> <strong>+INGYENES SZÁLLÍTÁS</strong></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <a href="https://www.aeterna-eu.shop/aet-hun/03uveg?fn=AFF-NR-HUN&ref=yjziymq9i&utm_src=9783d6bc-ec66-4245-b177-e4384bbb5a23" target="_blank" class="kit-btn kit-btn--consegna btn-purchase">🛒 UTÁNVÉTES FIZETÉS</a>
-        </div>
+        <div class="kits-grid">
 
-        <!-- KIT 1 flacone (básico) -->
-        <div class="kit-card kit-basic">
-          <div class="kit-badge kit-badge--basic">ALAPCSOMAG</div>
-          <div class="kit-inner">
-            <div class="kit-left">
-              <p class="kit-headline">1 ÜVEG</p>
-              <p class="kit-duration">30 NAPOS KÉSZLET</p>
-            </div>
-            <div class="kit-middle">
-              <div class="kit-image-wrap">
-                <img src="images/p1.png" alt="1 Üveg csomag" class="kit-img" loading="lazy">
+          <!-- KIT 5 potes -->
+          <div class="kit-card kit-featured">
+            <div class="kit-badge">LEGAJÁNLOTTABB</div>
+            <div class="kit-inner">
+              <div class="kit-left">
+                <p class="kit-headline">5 ÜVEG</p>
+                <p class="kit-duration">150 NAPOS KÉSZLET</p>
               </div>
-              <div class="kit-right">
-                <div class="kit-price-wrap">
-                  <span class="kit-arrow">→</span>
-                  <span class="kit-price">8 900 Ft</span>
+              <div class="kit-middle">
+                <div class="kit-image-wrap">
+                  <img src="images/p5.png" alt="5 Üveg csomag" class="kit-img" loading="lazy">
                 </div>
-                <ul class="kit-benefits">
-                  <li><span class="check-gold">✔</span> <strong>Alap csomag</strong></li>
-                  <li><span class="check-white">✔</span> 30 NAPOS GARANCIA</li>
-                  <li><span class="check-orange">🚚</span> <strong>+INGYENES SZÁLLÍTÁS</strong></li>
-                </ul>
+                <div class="kit-right">
+                  <div class="kit-price-wrap">
+                    <span class="kit-arrow">→</span>
+                    <span class="kit-price">HUF 46 700,00</span>
+                  </div>
+                  <ul class="kit-benefits">
+                    <li><span class="check-gold">✔</span> <strong>NAGYON JÓ MEGTAKARÍTÁS!</strong></li>
+                    <li><span class="check-white">✔</span> LEGNAGYOBB KEDVEZMÉNY</li>
+                    <li><span class="check-white">✔</span> 90 NAPOS GARANCIA</li>
+                    <li><span class="check-orange">🚚</span> <strong>+INGYENES SZÁLLÍTÁS</strong></li>
+                  </ul>
+                </div>
               </div>
             </div>
+            <a href="https://www.aeterna-eu.shop/aet-hun/05uveg?fn=AFF-NR-HUN&ref=yjziymq9i&utm_src=9783d6bc-ec66-4245-b177-e4384bbb5a23" target="_blank" class="kit-btn kit-btn--consegna btn-purchase">🛒 UTÁNVÉTES FIZETÉS</a>
           </div>
-          <a href="https://www.aeterna-eu.shop/aet-hun/01uveg?fn=AFF-NR-HUN&ref=yjziymq9i&utm_src=9783d6bc-ec66-4245-b177-e4384bbb5a23" target="_blank" class="kit-btn kit-btn--consegna btn-purchase">🛒 UTÁNVÉTES FIZETÉS</a>
-        </div>
 
-      </div>
-    </section>
-    <!-- ===== FIM BLOCO DE KITS ===== -->
+          <!-- KIT 3 potes -->
+          <div class="kit-card kit-popular">
+            <div class="kit-badge kit-badge--secondary">LEGNÉPSZERŰBB</div>
+            <div class="kit-inner">
+              <div class="kit-left">
+                <p class="kit-headline">3 ÜVEG</p>
+                <p class="kit-duration">90 NAPOS KÉSZLET</p>
+              </div>
+              <div class="kit-middle">
+                <div class="kit-image-wrap">
+                  <img src="images/p3.png" alt="3 Üveg csomag" class="kit-img" loading="lazy">
+                </div>
+                <div class="kit-right">
+                  <div class="kit-price-wrap">
+                    <span class="kit-arrow">→</span>
+                    <span class="kit-price">HUF 34 700,00</span>
+                  </div>
+                  <ul class="kit-benefits">
+                    <li><span class="check-gold">✔</span> <strong>KIVÁLÓ VÁLASZTÁS</strong></li>
+                    <li><span class="check-white">✔</span> 60 NAPOS GARANCIA</li>
+                    <li><span class="check-orange">🚚</span> <strong>+INGYENES SZÁLLÍTÁS</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="https://www.aeterna-eu.shop/aet-hun/03uveg?fn=AFF-NR-HUN&ref=yjziymq9i&utm_src=9783d6bc-ec66-4245-b177-e4384bbb5a23" target="_blank" class="kit-btn kit-btn--consegna btn-purchase">🛒 UTÁNVÉTES FIZETÉS</a>
+          </div>
+
+          <!-- KIT 1 pote -->
+          <div class="kit-card kit-basic">
+            <div class="kit-badge kit-badge--basic">ALAPCSOMAG</div>
+            <div class="kit-inner">
+              <div class="kit-left">
+                <p class="kit-headline">1 ÜVEG</p>
+                <p class="kit-duration">30 NAPOS KÉSZLET</p>
+              </div>
+              <div class="kit-middle">
+                <div class="kit-image-wrap">
+                  <img src="images/p1.png" alt="1 Üveg csomag" class="kit-img" loading="lazy">
+                </div>
+                <div class="kit-right">
+                  <div class="kit-price-wrap">
+                    <span class="kit-arrow">→</span>
+                    <span class="kit-price">HUF 26 700,00</span>
+                  </div>
+                  <ul class="kit-benefits">
+                    <li><span class="check-gold">✔</span> <strong>Alap csomag</strong></li>
+                    <li><span class="check-white">✔</span> 30 NAPOS GARANCIA</li>
+                    <li><span class="check-orange">🚚</span> <strong>+INGYENES SZÁLLÍTÁS</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="https://www.aeterna-eu.shop/aet-hun/01uveg?fn=AFF-NR-HUN&ref=yjziymq9i&utm_src=9783d6bc-ec66-4245-b177-e4384bbb5a23" target="_blank" class="kit-btn kit-btn--consegna btn-purchase">🛒 UTÁNVÉTES FIZETÉS</a>
+          </div>
+
+        </div>
+      </section>
+      <!-- ===== FIM BLOCO DE KITS ===== -->
     </div>
 
     <!-- Script de rastreamento do Initiate Checkout para os botões -->
