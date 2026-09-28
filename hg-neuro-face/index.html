@@ -55,10 +55,7 @@
 
     <!-- Video section -->
     <div class="video-container">
-      <vturb-smartplayer id="vid-6aaedd25c9391cd800fd5695" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;">
-        <div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.5% 0 0; z-index: 0; background-color: black;"></div>
-      </vturb-smartplayer> 
-      
+      <vturb-smartplayer id="ab-6abab5035a2e3be1482c68ea" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/0a8b4b97-a0e3-4633-ac8a-9914c0209ef6/ab-test/6abab5035a2e3be1482c68ea/player.js", s.async=!0,document.head.appendChild(s); </script>
       <script type="text/javascript"> 
         var s=document.createElement("script"); 
         s.src="https://scripts.converteai.net/ced55109-ae59-46b5-93a0-279ad8d66831/players/6aaedd25c9391cd800fd5695/v4/player.js"; 
@@ -66,18 +63,51 @@
         document.head.appendChild(s); 
       </script>
 
-      <!-- Script de delay do VTurb para revelar os kits -->
-      <script>
-        var delaySeconds = 3337;
-        var player = document.querySelector("vturb-smartplayer");
-        if (player) {
-          player.addEventListener("player:ready", function() {
-            player.displayHiddenElements(delaySeconds, [".esconder"], {
-              persist: true
-            });
-          });
-        }
-      </script>
+<style>
+  .esconder {
+    display: none;
+  }
+</style>
+      
+  <script>
+  var listPitch = {
+    '6abab34c08b80e9782ba5169': { delay: 3613, utm: 'utm_content=hg-neuro-face' },
+    'ID_DO_VÍDEO_B': { delay: 10, utm: 'utm_content=vslB' },
+    'ID_DO_VÍDEO_C': { delay: 10, utm: 'utm_content=vslC' }
+  };
+
+  var alreadyInitialized = false;
+
+  var updateLinksWithUTM = function(utmParam) {
+    var links = document.querySelectorAll('a[href]:not([href*="#"])');
+    var separator = '?';
+    var queryString = separator + utmParam;
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+      if (link.href.indexOf(utmParam) !== -1) continue;
+      if(utmParam === undefined) return
+      var baseUrl = link.href.split('?')[0];
+      link.href = baseUrl + queryString;
+    }
+  };
+
+  document.addEventListener('player:ready', function(event) {
+    if (alreadyInitialized) return;
+
+    var detail = event.detail || {};
+    var config = detail.config || {};
+    var player = detail.player || document.querySelector('vturb-smartplayer');
+    var playerId = config.id;
+    var pitchConfig = listPitch[playerId];
+
+    if (!playerId || !pitchConfig) return;
+
+    alreadyInitialized = true;
+
+    player.displayHiddenElements(pitchConfig.delay, ['.esconder'], { persist: true });
+    //updateLinksWithUTM(pitchConfig.utm);
+  });
+</script>
       
       <p class="sound-notice">🔊 Kérjük, ellenőrizze, hogy a hang be van-e kapcsolva.</p>
     </div>
