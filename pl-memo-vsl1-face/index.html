@@ -206,23 +206,28 @@
     
     <!-- Scientific references -->
 
-
-    
-   <!-- Script de rastreamento do Initiate Checkout para os botões -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        document.body.addEventListener('click', function(event) {
-          var targetButton = event.target.closest('.btn-purchase');
-          if (targetButton) {
-            if (typeof window.utmify !== 'undefined' && typeof window.utmify.track === 'function') {
-              window.utmify.track('InitiateCheckout');
-            } else if (typeof UTMIFY !== 'undefined' && typeof UTMIFY.track === 'function') {
-              UTMIFY.track('InitiateCheckout');
-            }
+<!-- Script de Initiate Checkout Corrigido e Imediato -->
+<script>
+  (function() {
+    document.addEventListener('click', function(event) {
+      var targetButton = event.target.closest('.btn-purchase');
+      if (targetButton) {
+        var triggerUtmify = function(attempts) {
+          if (typeof window.utmify !== 'undefined' && typeof window.utmify.track === 'function') {
+            window.utmify.track('InitiateCheckout');
+          } else if (typeof UTMIFY !== 'undefined' && typeof UTMIFY.track === 'function') {
+            UTMIFY.track('InitiateCheckout');
+          } else if (attempts > 0) {
+            setTimeout(function() {
+              triggerUtmify(attempts - 1);
+            }, 200);
           }
-        });
-      });
-    </script>
+        };
+        triggerUtmify(5);
+      }
+    }, true);
+  })();
+</script>
 
 
     
