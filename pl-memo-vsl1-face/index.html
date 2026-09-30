@@ -208,29 +208,22 @@
 
 
     
-<!-- Script corrigido de Initiate Checkout -->
-<script>
-  (function() {
-    document.addEventListener('click', function(event) {
-      var targetButton = event.target.closest('.btn-purchase');
-      if (targetButton) {
-        // Tenta disparar de todas as formas possíveis que a Utmify injeta no ecossistema
-        try {
-          if (typeof window.utmify !== 'undefined' && typeof window.utmify.track === 'function') {
-            window.utmify.track('InitiateCheckout');
-          } else if (typeof UTMIFY !== 'undefined' && typeof UTMIFY.track === 'function') {
-            UTMIFY.track('InitiateCheckout');
-          } else if (typeof fbq === 'function') {
-            // Fallback direto caso queira garantir o disparo no pixel do Meta
-            fbq('track', 'InitiateCheckout');
+   <!-- Script de rastreamento do Initiate Checkout para os botões -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        document.body.addEventListener('click', function(event) {
+          var targetButton = event.target.closest('.btn-purchase');
+          if (targetButton) {
+            if (typeof window.utmify !== 'undefined' && typeof window.utmify.track === 'function') {
+              window.utmify.track('InitiateCheckout');
+            } else if (typeof UTMIFY !== 'undefined' && typeof UTMIFY.track === 'function') {
+              UTMIFY.track('InitiateCheckout');
+            }
           }
-        } catch (e) {
-          console.error("Erro ao disparar IC:", e);
-        }
-      }
-    }, true);
-  })();
-</script>
+        });
+      });
+    </script>
+
 
     
     <!-- Comments section -->
