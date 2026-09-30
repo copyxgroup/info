@@ -39,19 +39,49 @@
 <vturb-smartplayer id="ab-6aba7a05947a62978aee9411" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/0a8b4b97-a0e3-4633-ac8a-9914c0209ef6/ab-test/6aba7a05947a62978aee9411/player.js", s.async=!0,document.head.appendChild(s); </script>
 
 
-      <style>
+<style>
   .esconder {
     display: none;
   }
 </style>
 
 <script>
-  var delaySeconds = 1778;
-  var player = document.querySelector("vturb-smartplayer");
-  player.addEventListener("player:ready", function() {
-    player.displayHiddenElements(delaySeconds, [".esconder"], {
-      persist: true
-    });
+  var listPitch = {
+    '6abab7d6e46f7d51c60d99a7': { delay: 2829, utm: 'utm_content=PL-MEMO-VSL2-MEL-FACE' },
+    '6ab9e12bb38860d41cc78e0c': { delay: 1726, utm: 'utm_content=PL-MEMO-VSL1-MEL-FACE' },
+    'ID_DO_VÍDEO_C': { delay: 10, utm: 'utm_content=vslC' }
+  };
+
+  var alreadyInitialized = false;
+
+  var updateLinksWithUTM = function(utmParam) {
+    var links = document.querySelectorAll('a[href]:not([href*="#"])');
+    var separator = '?';
+    var queryString = separator + utmParam;
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+      if (link.href.indexOf(utmParam) !== -1) continue;
+      if(utmParam === undefined) return
+      var baseUrl = link.href.split('?')[0];
+      link.href = baseUrl + queryString;
+    }
+  };
+
+  document.addEventListener('player:ready', function(event) {
+    if (alreadyInitialized) return;
+
+    var detail = event.detail || {};
+    var config = detail.config || {};
+    var player = detail.player || document.querySelector('vturb-smartplayer');
+    var playerId = config.id;
+    var pitchConfig = listPitch[playerId];
+
+    if (!playerId || !pitchConfig) return;
+
+    alreadyInitialized = true;
+
+    player.displayHiddenElements(pitchConfig.delay, ['.esconder'], { persist: true });
+    //updateLinksWithUTM(pitchConfig.utm);
   });
 </script>
 
