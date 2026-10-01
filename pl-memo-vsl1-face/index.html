@@ -208,31 +208,6 @@
     
     
     <!-- Scientific references -->
-
-<!-- Script de Initiate Checkout Corrigido e Imediato -->
-<script>
-  (function() {
-    document.addEventListener('click', function(event) {
-      var targetButton = event.target.closest('.btn-purchase');
-      if (targetButton) {
-        var triggerUtmify = function(attempts) {
-          if (typeof window.utmify !== 'undefined' && typeof window.utmify.track === 'function') {
-            window.utmify.track('InitiateCheckout');
-          } else if (typeof UTMIFY !== 'undefined' && typeof UTMIFY.track === 'function') {
-            UTMIFY.track('InitiateCheckout');
-          } else if (attempts > 0) {
-            setTimeout(function() {
-              triggerUtmify(attempts - 1);
-            }, 200);
-          }
-        };
-        triggerUtmify(5);
-      }
-    }, true);
-  })();
-</script>
-
-
     
     <!-- Comments section -->
     <div class="comments-section">
