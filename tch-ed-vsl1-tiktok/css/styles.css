@@ -57,7 +57,7 @@ img { max-width: 100%; height: auto; display: block; }
 .sound-notice { text-align: center; font-size: 12px; color: hsl(0 0% 45%); margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 4px; }
 
 /* =====================================================
-   BLOCO DE KITS
+    BLOCO DE KITS
    ===================================================== */
 .kits-section {
   background: #fff;
@@ -187,19 +187,19 @@ img { max-width: 100%; height: auto; display: block; }
   width: 100%;
 }
 
-/* Área da imagem */
+/* Área da imagem (+35% de largura) */
 .kit-image-wrap {
   flex: 0 0 45%;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 120px;
+  min-height: 140px;
 }
 
 .kit-img {
   width: 100%;
-  max-width: 140px;
-  min-width: 100px;
+  max-width: 189px; /* Aumentado em 35% (de 140px para 189px) */
+  min-width: 135px; /* Aumentado em 35% (de 100px para 135px) */
   height: auto;
   object-fit: contain;
   display: block;
@@ -274,7 +274,7 @@ img { max-width: 100%; height: auto; display: block; }
 .kit-btn--consegna:hover { opacity: .88; transform: translateY(-1px); }
 
 /* =====================================================
-   DESKTOP — grid 3 colunas, destaque no centro
+    DESKTOP — grid 3 colunas, destaque no centro
    ===================================================== */
 @media (min-width: 768px) {
   .kits-title { font-size: 28px; }
@@ -301,7 +301,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* =====================================================
-   FIM BLOCO DE KITS
+    FIM BLOCO DE KITS
    ===================================================== */
 
 /* Brands / Scientific references */
