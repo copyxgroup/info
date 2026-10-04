@@ -26,26 +26,36 @@ const DEADLINE_CONFIG = {
   format: "numeric",
 };
 
-// ---------- Dados dos comentários ----------
+// ---------- Data komentářů ----------
 let comments = [
   {
     id: 1,
-    name: "Marek Kowalski",
-    time: "5min",
-    likes: 132,
+    name: "Tereza Nováková",
+    time: "1h",
+    likes: 1254,
     text:
-      "Wow, czuję się naprawdę głupio, że nie odkryłem tych informacji wcześniej. Obejrzałem cały film i w końcu zrozumiałem, co może wpływać na problemy z erekcją. Dziękuję za podzielenie się tą wiedzą.",
-    avatar: "MK",
+      "Dr., začala jsem před 15 dny a výsledky jsou prostě neuvěřitelné. Rozhodla jsem se vydržet, protože to opravdu funguje!",
+    avatar: "TN",
     liked: false,
     replies: [
       {
         id: 11,
-        name: "Karol Nowak",
-        time: "34min",
-        likes: 58,
+        name: "Anna Svobodová",
+        time: "1h",
+        likes: 619,
         text:
-          "Ja też obejrzałem cały film i muszę przyznać, że otworzył mi oczy. Proste informacje, ale mogą zrobić ogromną różnicę w życiu intymnym mężczyzny.",
-        avatar: "KN",
+          "KONEČNĚ NĚKDO, KDO NECHODÍ KOLEM HORKÉ KAŠE! DĚKUJI!! DNES JSEM ZAČALA A JSEM STRAŠNĚ NADŠENÁ! ❤",
+        avatar: "AS",
+        liked: false
+      },
+      {
+        id: 12,
+        name: "Klára Dvořáková",
+        time: "1h",
+        likes: 410,
+        text:
+          "Jak to vysvětlujete, je to tak srozumitelné a přímočaré, přesně tohle jsme potřebovali. Dnes hned tu metodu vyzkouším!",
+        avatar: "KD",
         liked: false
       }
     ]
@@ -53,70 +63,35 @@ let comments = [
 
   {
     id: 2,
-    name: "Adrian Wiśniewski",
-    time: "26min",
-    likes: 102,
+    name: "Lucie Černá",
+    time: "1h",
+    likes: 566,
     text:
-      "NAJLEPSZA PREZENTACJA, JAKĄ WIDZIAŁEM OD DAWNA! Przez lata myślałem, że problemy z erekcją są po prostu związane z wiekiem. Po obejrzeniu tego filmu całkowicie zmieniłem podejście.",
-    avatar: "AW",
-    liked: false,
-    replies: [
-      {
-        id: 21,
-        name: "Szymon Kamiński",
-        time: "39min",
-        likes: 61,
-        text:
-          "Czuję się głupio, że nie zgłębiłem tego tematu wcześniej. To niesamowite, jak bardzo może zmienić się życie mężczyzny, gdy w końcu wie, co robić.",
-        avatar: "SK",
-        liked: false
-      }
-    ]
+      "Dělám to už 17 dní a všimla jsem si nejen, že váha jde dolů, ale vidím i neuvěřitelné změny na těle. Byl to opravdový ZLOM! Miluju to!",
+    avatar: "LČ",
+    liked: false
   },
 
   {
     id: 3,
-    name: "Tomasz Zieliński",
-    time: "14min",
-    likes: 78,
+    name: "Martina Procházková",
+    time: "1h",
+    likes: 885,
     text:
-      "Zastosowałem się do wskazówek pokazanych w filmie i dziś czuję się dużo pewniej w sypialni. Szkoda, że nie znalazłem tych informacji wcześniej.",
-    avatar: "TZ",
+      "Jasnost toho videa je neskutečná: žádná omáčka, žádné okecávání. Máte odvahu říct pravdu a ukázat cestu. Skvělé, Dr.!",
+    avatar: "MP",
     liked: false
   },
 
   {
     id: 4,
-    name: "Paweł Lewandowski",
-    time: "19min",
-    likes: 60,
+    name: "Veronika Králová",
+    time: "1h",
+    likes: 785,
     text:
-      "Gratulacje za treść. Po obejrzeniu filmu czuję się o wiele spokojniejszy i pewniejszy siebie. Dziękuję za poruszenie tematu, którego tak wielu mężczyzn unika.",
-    avatar: "PL",
+      "Dr., byla jste pro mě opravdu světlo. Před pár lety jsem procházela nejtěžším obdobím svého života a tehdy jsem se rozhodla, že se konečně začnu věnovat sama sobě a najdu něco, co opravdu funguje. Narazila jsem na vaše video a bylo to jako dar. Sleduji tu metodu teprve 5 dní, ale už se cítím úplně jinak: mám víc energie, jsem motivovanější a výsledky jsou vidět. Nečekala jsem, že se takhle můžu cítit za tak krátkou dobu.",
+    avatar: "VK",
     liked: false
-  },
-
-  {
-    id: 5,
-    name: "Łukasz Wójcik",
-    time: "16min",
-    likes: 146,
-    text:
-      "Co za niesamowite odkrycie. W ciągu kilku tygodni poczułem się bardziej energiczny i pewny siebie w sytuacjach intymnych. Szczerze mówiąc, nie sądziłem, że małe zmiany mogą mieć tak duży wpływ.",
-    avatar: "ŁW",
-    liked: false,
-    replies: [
-      {
-        id: 51,
-        name: "Robert Kaczmarek",
-        time: "46min",
-        likes: 63,
-        text:
-          "Wow, nie spodziewałem się, że coś tak prostego pomoże mi odzyskać pewność siebie i spokój w życiu intymnym. Naprawdę przydatny film!",
-        avatar: "RK",
-        liked: false
-      }
-    ]
   }
 ];
 
