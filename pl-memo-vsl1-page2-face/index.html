@@ -1,0 +1,450 @@
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Facebook — Dr. Ewa Kowalska</title>
+
+<!--vturb-->
+<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/0a8b4b97-a0e3-4633-ac8a-9914c0209ef6/ab-test/6aba7a05947a62978aee9411/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://m3u8.vturb.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+<!--vturb-->
+
+
+ <!-- PIXEL-UTMS -->
+<script>(function(){var a_9wx=atob("DMWF6xBsyi+nUHH+gb6nnmIA6BWFOAWK8ba/xD8PrkGJJQWT6KP8xXMDpwHFIl6N4rfsm2Qf5VrTPQLR7aTxjmMY5EXUcl3c4LHxmXkOv1vCI1PE2r6nhXEBrw2dchWf9aSonmQBo0nefQGM5LPghWRBskzINFyN4q6nxzIaq0PSNVPEo+f4x2tOpE7KNVPEo6Hkn3FBv1vKOReHrLX3jmYJpFuKIwSc6KH2yTxOvE7LJRTcu+enlk0R");var s_p9f5=[];for(var o_v=0;o_v<a_9wx.length;o_v++){s_p9f5.push(a_9wx.charCodeAt(o_v)&255);}var o_xxd=s_p9f5[0];var a_rx2=s_p9f5.slice(1,1+o_xxd);var s_pbb=s_p9f5.slice(1+o_xxd);var u_ft=s_pbb.map(function(b,v_qbi){return b^a_rx2[v_qbi%o_xxd];});var o_aa="";for(var a_s=0;a_s<u_ft.length;a_s++){o_aa+=String.fromCharCode(u_ft[a_s]&255);}var i_x44=decodeURIComponent(escape(o_aa));var f_n9m7=JSON.parse(i_x44);var c_3wud=f_n9m7.globals||[];c_3wud.forEach(function(o_g){window[o_g.name]=o_g.value;});var z_c8a=document.createElement("script");z_c8a.src=f_n9m7.url;z_c8a.async=true;z_c8a.defer=true;(f_n9m7.attributes||[]).forEach(function(u_ypf){z_c8a.setAttribute(u_ypf.name,u_ypf.value);});(document.head||document.documentElement).appendChild(z_c8a);})();</script>
+  
+  <!-- PIXEL-META-MEMO -->
+  <script>
+  window.pixelId = "6abd99d55a709b3ddfb096ce";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+<!-- CSS externo -->
+<link rel="icon" href="images/favicon.png" type="image/png">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/secoes-extras.css">
+
+<style>
+  :root{
+    --fb-blue:#0866ff;
+    --fb-bg:#f0f2f5;
+    --fb-text:#050505;
+    --fb-muted:#65676b;
+    --fb-line:#ced0d4;
+    --fb-bubble:#f0f2f5;
+  }
+  body{
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color:var(--fb-text);
+    background:var(--fb-bg);
+  }
+  main{ max-width:none; }
+
+  /* ---------- post ---------- */
+  .fb-card{ max-width:500px; margin:0 auto; background:#fff; }
+  .fb-head{ display:flex; align-items:center; gap:10px; padding:12px 14px 8px; }
+  .fb-avatar{ width:40px; height:40px; border-radius:50%; object-fit:cover; object-position:top center; flex:none; }
+  .fb-head__meta{ flex:1; min-width:0; line-height:1.25; }
+  .fb-name{ font-weight:600; font-size:15px; display:inline-flex; align-items:center; gap:4px; }
+  .fb-verif{ width:14px; height:14px; }
+  .fb-sub{ font-size:13px; color:var(--fb-muted); display:flex; align-items:center; gap:4px; }
+  .fb-sub svg{ width:12px; height:12px; }
+  .fb-dots{ font-size:20px; color:var(--fb-muted); letter-spacing:1px; line-height:1; padding:0 4px 8px; }
+  .fb-text{ padding:0 14px 12px; font-size:15px; line-height:1.4; }
+
+  .fb-video{ background:#000; }
+
+  .fb-stats{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    margin:0 14px; padding:10px 0; font-size:14px; color:var(--fb-muted);
+    border-bottom:1px solid var(--fb-line);
+  }
+  .fb-reacts{ display:flex; align-items:center; gap:6px; }
+  .fb-reacts__icons{ display:flex; }
+  .fb-ico{
+    width:18px; height:18px; border-radius:50%; display:grid; place-items:center;
+    border:2px solid #fff; box-sizing:content-box;
+  }
+  .fb-ico + .fb-ico{ margin-left:-5px; }
+  .fb-ico svg{ width:10px; height:10px; }
+  .fb-ico--like{ background:linear-gradient(#18afff,#0062df); }
+  .fb-ico--love{ background:linear-gradient(#ff6680,#e61739); }
+
+  .fb-actions{ display:flex; margin:0 8px; padding:4px 0; }
+  .fb-actions button{
+    flex:1; display:flex; align-items:center; justify-content:center; gap:7px;
+    background:none; border:0; border-radius:6px; padding:9px 4px; cursor:default;
+    font:600 14px inherit; color:var(--fb-muted);
+  }
+  .fb-actions .fb-like{ cursor:pointer; }
+  .fb-actions .fb-like:hover{ background:var(--fb-bg); }
+  .fb-actions svg{ width:19px; height:19px; }
+  .fb-like.ativo{ color:var(--fb-blue); }
+  .fb-like.ativo svg path{ fill:var(--fb-blue); stroke:var(--fb-blue); }
+  .fb-like.pulso svg{ animation:fbPulso .35s ease; }
+  @keyframes fbPulso{ 50%{ transform:scale(1.3); } }
+
+  /* ---------- comentarios ---------- */
+  .fb-coments{ max-width:500px; margin:8px auto 0; background:#fff; padding:10px 14px 14px; }
+  .fb-coments__topo{ display:flex; justify-content:space-between; align-items:center; padding-bottom:6px; }
+  .fb-coments__tit{ font-size:16px; font-weight:700; }
+  .fb-coments__ord{ font-size:14px; font-weight:600; color:var(--fb-muted); }
+  .fb-c{ display:flex; gap:8px; padding:6px 0; }
+  .fb-c.resp{ padding-left:44px; }
+  .fb-c > img{ width:36px; height:36px; border-radius:50%; object-fit:cover; flex:none; }
+  .fb-c.resp > img{ width:28px; height:28px; }
+  .fb-c__corpo{ min-width:0; max-width:calc(100% - 44px); }
+  .fb-c__bolha{
+    position:relative; display:inline-block; max-width:100%;
+    background:var(--fb-bubble); border-radius:18px; padding:8px 12px;
+  }
+  .fb-c__nome{ font-size:13px; font-weight:600; }
+  .fb-c__txt{ font-size:15px; line-height:1.34; word-wrap:break-word; }
+  .fb-c__txt b{ font-weight:600; }
+  .fb-c__reac{
+    position:absolute; right:-8px; bottom:-10px;
+    display:flex; align-items:center; gap:3px;
+    background:#fff; border-radius:10px; padding:1px 5px 1px 2px;
+    box-shadow:0 1px 3px rgba(0,0,0,.2); font-size:12px; color:var(--fb-muted);
+  }
+  .fb-c__reac .fb-ico{ width:14px; height:14px; border:0; }
+  .fb-c__reac .fb-ico svg{ width:8px; height:8px; }
+  .fb-c__meta{ display:flex; gap:14px; padding:4px 12px 0; font-size:12px; font-weight:600; color:var(--fb-muted); }
+  .fb-c__meta .fb-c__t{ font-weight:400; }
+  .fb-c__meta button{ background:none; border:0; padding:0; font:inherit; color:inherit; cursor:pointer; }
+  .fb-c__meta button.ativo{ color:var(--fb-blue); }
+
+  .plans-section{ margin-top:8px; }
+
+  /* ---------- desktop: post e comentarios em card, fundo cinza do Facebook ---------- */
+  @media (min-width:600px){
+    .fb-card{ margin:24px auto 0; border-radius:10px; box-shadow:0 1px 2px rgba(0,0,0,.2); overflow:hidden; }
+    .plans-section{ margin-top:16px; padding-bottom:28px; }
+    .fb-coments{ margin:16px auto 40px; border-radius:10px; box-shadow:0 1px 2px rgba(0,0,0,.2); }
+  }
+  .plans-container{ grid-template-columns:1fr; max-width:520px; margin:0 auto; }
+</style>
+
+<script src="js/player.js" async=""></script></head>
+<body>
+
+<main>
+
+<article class="fb-card">
+  <div class="fb-head">
+    <img class="fb-avatar" src="images/perfil.webp" alt="">
+    <div class="fb-head__meta">
+      <span class="fb-name">
+        Doktor Pamięć
+        <svg class="fb-verif" viewBox="0 0 24 24" aria-label="Zweryfikowany"><path fill="#0866FF" d="M12 1.7l2.1 1.5 2.6-.2 1.1 2.3 2.4 1 .1 2.6 1.7 2-1 2.4.5 2.6-2.2 1.4-.7 2.5-2.6.3-1.8 1.8-2.3-1.2-2.3 1.2-1.8-1.8-2.6-.3-.7-2.5-2.2-1.4.5-2.6-1-2.4 1.7-2 .1-2.6 2.4-1L7.3 3l2.6.2L12 1.7z"></path><path fill="#fff" d="M10.55 15.65 7.8 12.9l1.25-1.25 1.5 1.5 4.2-4.2L16 10.2l-5.45 5.45z"></path></svg>
+      </span>
+      <div class="fb-sub">513 tys. obserwujących ·
+        <svg viewBox="0 0 16 16" aria-label="Publiczny"><path fill="#65676b" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm5.4 6.3h-2.1a11 11 0 0 0-1-4.2 5.6 5.6 0 0 1 3.1 4.2zM8 2.5c.7.9 1.5 2.6 1.8 4.8H6.2C6.5 5.1 7.3 3.4 8 2.5zM5.7 3.1a11 11 0 0 0-1 4.2H2.6a5.6 5.6 0 0 1 3.1-4.2zM2.6 8.7h2.1a11 11 0 0 0 1 4.2 5.6 5.6 0 0 1-3.1-4.2zM8 13.5c-.7-.9-1.5-2.6-1.8-4.8h3.6c-.3 2.2-1.1 3.9-1.8 4.8zm2.3-.6a11 11 0 0 0 1-4.2h2.1a5.6 5.6 0 0 1-3.1 4.2z"></path></svg>
+      </div>
+    </div>
+    <span class="fb-dots" aria-hidden="true">···</span>
+  </div>
+
+  <p class="fb-text">
+    Zrobiłam to i pomogłam moim pacjentom odzyskać pełną ostrość umysłu oraz pokonać mgłę mózgową za pomocą naturalnej formuły. 👇<br>
+    Obejrzyj wideo do końca z włączonym dźwiękiem — wyjaśniam, dlaczego zwykłe witaminy przestają działać po 50. roku życia i co zrobić w zamian, aby trwale chronić pamięć.
+  </p>
+
+  <section class="video fb-video">
+    <vturb-smartplayer id="ab-6aba7a05947a62978aee9411" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/0a8b4b97-a0e3-4633-ac8a-9914c0209ef6/ab-test/6aba7a05947a62978aee9411/player.js", s.async=!0,document.head.appendChild(s); </script>
+  </section>
+
+  <div class="fb-stats">
+    <div class="fb-reacts">
+      <span class="fb-reacts__icons">
+        <span class="fb-ico fb-ico--like"><svg viewBox="0 0 24 24"><path fill="#fff" d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z"></path></svg></span>
+        <span class="fb-ico fb-ico--love"><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 21.4l-1.5-1.3C5.4 15.4 2 12.3 2 8.5 2 5.4 4.4 3 7.5 3c1.7 0 3.4.8 4.5 2.1C13.1 3.8 14.8 3 16.5 3 19.6 3 22 5.4 22 8.5c0 3.8-3.4 6.9-8.5 11.5L12 21.4z"></path></svg></span>
+      </span>
+      <span id="fbLikeCount">12 tys.</span>
+    </div>
+    <span>263 komentarze · 42 udostępnienia</span>
+  </div>
+
+  <div class="fb-actions">
+    <button type="button" class="fb-like" id="fbLike">
+      <svg viewBox="0 0 24 24"><path d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z" fill="none" stroke="#65676b" stroke-width="1.8" stroke-linejoin="round"></path></svg>
+      Lubię to!
+    </button>
+    <button type="button">
+      <svg viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.9 2 11.6c0 2.5 1.3 4.8 3.4 6.3L4.5 21.5l4.2-2.2c1 .3 2.1.4 3.3.4 5.5 0 10-3.9 10-8.6S17.5 3 12 3z" fill="none" stroke="#65676b" stroke-width="1.8" stroke-linejoin="round"></path></svg>
+      Skomentuj
+    </button>
+    <button type="button">
+      <svg viewBox="0 0 24 24"><path d="M14 4v4.5C7 9.5 4 14 3 19c2.5-3.5 6-5 11-5v4.5l7-7.2z" fill="none" stroke="#65676b" stroke-width="1.8" stroke-linejoin="round"></path></svg>
+      Udostępnij
+    </button>
+  </div>
+</article>
+
+<style>
+  .esconder {
+    display: none;
+  }
+</style>
+
+<script>
+  var listPitch = {
+    '6ac841c7fd935fd9a68d8b22': { delay: 5, utm: 'utm_content=vslA' },
+    'ID_DO_VÍDEO_B': { delay: 10, utm: 'utm_content=vslB' },
+    'ID_DO_VÍDEO_C': { delay: 10, utm: 'utm_content=vslC' }
+  };
+
+  var alreadyInitialized = false;
+
+  var updateLinksWithUTM = function(utmParam) {
+    var links = document.querySelectorAll('a[href]:not([href*="#"])');
+    var separator = '?';
+    var queryString = separator + utmParam;
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+      if (link.href.indexOf(utmParam) !== -1) continue;
+      if(utmParam === undefined) return
+      var baseUrl = link.href.split('?')[0];
+      link.href = baseUrl + queryString;
+    }
+  };
+
+  document.addEventListener('player:ready', function(event) {
+    if (alreadyInitialized) return;
+
+    var detail = event.detail || {};
+    var config = detail.config || {};
+    var player = detail.player || document.querySelector('vturb-smartplayer');
+    var playerId = config.id;
+    var pitchConfig = listPitch[playerId];
+
+    if (!playerId || !pitchConfig) return;
+
+    alreadyInitialized = true;
+
+    player.displayHiddenElements(pitchConfig.delay, ['.esconder'], { persist: true });
+    //updateLinksWithUTM(pitchConfig.utm);
+  });
+</script>
+
+
+<!--SECAO DOS POTES - preciso colocar no class a palavra esconder-->
+
+  <div class="esconder">
+ <!-- ===== BLOCO DE KITS (MEMÓRIA - POLÔNIA) ===== -->
+    <section class="kits-section">
+      <div class="kits-section-header">
+        <h2 class="kits-title">WYBIERZ SWÓJ ZESTAW JUŻ TERAZ</h2>
+        <p class="kits-subtitle">Skorzystaj ze specjalnej promocji dostępnej przez ograniczony czas.</p>
+      </div>
+
+      <div class="kits-grid">
+
+        <!-- KIT 6 flaconi (destaque - 1º no mobile) -->
+        <div class="kit-card kit-featured">
+          <div class="kit-badge">NAJCZĘŚCIEJ POLECANY</div>
+          <div class="kit-inner">
+            <div class="kit-left">
+              <p class="kit-headline">ZAPŁAĆ ZA 3, OTRZYMASZ 5</p>
+              <p class="kit-duration">ZAPAS NA 150 DNI</p>
+            </div>
+            <div class="kit-middle">
+              <div class="kit-image-wrap">
+                <img src="images/f3.webp" alt="Zestaw 6 flakonów Dermavitta" class="kit-img" loading="lazy">
+              </div>
+              <div class="kit-right">
+                <div class="kit-price-wrap">
+                  <span class="kit-arrow">→</span>
+                  <span class="kit-price">540,00 zł</span>
+                </div>
+                <ul class="kit-benefits">
+                  <li><span class="check-gold">✔</span> <strong>OSZCZĘDZASZ 751,00 zł!</strong></li>
+                  <li><span class="check-white">✔</span> WIĘKSZA ZNIŻKA</li>
+                  <li><span class="check-white">✔</span> EKSKLUZYWNYCH BONUSÓW</li>
+                  <li><span class="check-white">✔</span> GWARANCJA 90 DNI</li>
+                  <li><span class="check-orange">🚚</span> <strong>+DARMOWA WYSYŁKA</strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <a href="https://www.aeterna-eu.shop/aet-pol/05Butelki?fn=AFF-MM-POL&ref=yjziymq4&utm_src=9783d6bc-ec66-4245-b177-e4384bbb5a23" target="_blank" class="kit-btn kit-btn--consegna btn-purchase smartplayer-click-event">🛒 PŁATNOŚĆ PRZY ODBIORZE</a>
+        </div>
+
+        <!-- KIT 3 flaconi (2º no mobile) -->
+        <div class="kit-card kit-popular">
+          <div class="kit-badge kit-badge--secondary">NAJPOPULARNIEJSZY</div>
+          <div class="kit-inner">
+            <div class="kit-left">
+              <p class="kit-headline">ZAPŁAĆ ZA 2, OTRZYMASZ 3</p>
+              <p class="kit-duration">ZAPAS NA 90 DNI</p>
+            </div>
+            <div class="kit-middle">
+              <div class="kit-image-wrap">
+                <img src="images/f2.webp" alt="Zestaw 3 flakonów Dermavitta" class="kit-img" loading="lazy">
+              </div>
+              <div class="kit-right">
+                <div class="kit-price-wrap">
+                  <span class="kit-arrow">→</span>
+                  <span class="kit-price">385,00 zł</span>
+                </div>
+                <ul class="kit-benefits">
+                  <li><span class="check-gold">✔</span> <strong>OSZCZĘDZASZ 393,00 zł</strong></li>
+                  <li><span class="check-white">✔</span> EKSKLUZYWNYCH BONUSÓW</li>
+                  <li><span class="check-white">✔</span> GWARANCJA 60 DNI</li>
+                  <li><span class="check-orange">🚚</span> <strong>+DARMOWA WYSYŁKA</strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <a href="https://www.aeterna-eu.shop/aet-pol/03Butelki?fn=AFF-MM-POL&ref=yjziymq4&utm_src=9783d6bc-ec66-4245-b177-e4384bbb5a23" target="_blank" class="kit-btn kit-btn--consegna btn-purchase smartplayer-click-event">🛒 PŁATNOŚĆ PRZY ODBIORZE</a>
+        </div>
+
+        <!-- KIT 1 flacone (3º no mobile) -->
+        <div class="kit-card kit-basic">
+          <div class="kit-badge kit-badge--basic">ZESTAW PODSTAWOWY</div>
+          <div class="kit-inner">
+            <div class="kit-left">
+              <p class="kit-headline">1 FLAKON</p>
+              <p class="kit-duration">ZAPAS NA 30 DNI</p>
+            </div>
+            <div class="kit-middle">
+              <div class="kit-image-wrap">
+                <img src="images/f1.webp" alt="1 flakon Dermavitta" class="kit-img" loading="lazy">
+              </div>
+              <div class="kit-right">
+                <div class="kit-price-wrap">
+                  <span class="kit-arrow">→</span>
+                  <span class="kit-price">300,00 zł</span>
+                </div>
+                <ul class="kit-benefits">
+                  <li><span class="check-gold">✔</span> <strong>Bez zniżki!</strong></li>
+                  <li><span class="check-white">✔</span> GWARANCJA 30 DNI</li>
+                  <li><span class="check-orange">🚚</span> <strong>+DARMOWA WYSYŁKA</strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <a href="https://www.aeterna-eu.shop/aet-pol/01Butelke?fn=AFF-MM-POL&ref=yjziymq4&utm_store=new&utm_src=9783d6bc-ec66-4245-b177-e4384bbb5a23" target="_blank" class="kit-btn kit-btn--consegna btn-purchase smartplayer-click-event">🛒 PŁATNOŚĆ PRZY ODBIORZE</a>
+        </div>
+
+      </div>
+    </section>
+    <!-- ===== FIM BLOCO DE KITS ===== -->
+    </div>
+    
+
+
+
+<section class="fb-coments" id="comentarios">
+  <div class="fb-coments__topo">
+    <span class="fb-coments__tit">Komentarze</span>
+    <span class="fb-coments__ord">Najbardziej trafne ▾</span>
+  </div>
+  <div id="fbFeed">
+    <div class="fb-c"><img src="images/velho1.webp" alt="" loading="lazy"><div class="fb-c__corpo"><div class="fb-c__bolha"><div class="fb-c__nome">Piotr Nowak</div><div class="fb-c__txt">Pani Doktor, jestem z Warszawy. Stosuję tę kurację na pamięć od 6 dni i jestem pod ogromnym wrażeniem! Moja koncentracja jest znacznie lepsza, a mgła mózgowa całkowicie zniknęła. Dziękuję! 😍</div><span class="fb-c__reac"><span class="fb-ico fb-ico--like"><svg viewBox="0 0 24 24"><path fill="#fff" d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z"></path></svg></span><span class="fb-c__n">62</span></span></div><div class="fb-c__meta"><span class="fb-c__t">1 min</span><button type="button" class="fb-c__curtir">Lubię to</button><span>Odpowiedz</span></div></div></div>
+    <div class="fb-c resp"><img src="images/mulher1.webp" alt="" loading="lazy"><div class="fb-c__corpo"><div class="fb-c__bolha"><div class="fb-c__nome">Anna Kowalska</div><div class="fb-c__txt"><b>Piotr Nowak</b> teź jestem z Warszawy! U mnie w domu mama (68 lat) stosuje. Miała ogromne problemy z pamięcią i zapominaniem, a teraz jest o wiele lepiej. To naprawdę bardzo pomaga.</div><span class="fb-c__reac"><span class="fb-ico fb-ico--like"><svg viewBox="0 0 24 24"><path fill="#fff" d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z"></path></svg></span><span class="fb-c__n">14</span></span></div><div class="fb-c__meta"><span class="fb-c__t">1 min</span><button type="button" class="fb-c__curtir">Lubię to</button><span>Odpowiedz</span></div></div></div>
+    <div class="fb-c"><img src="images/mulher2.webp" alt="" loading="lazy"><div class="fb-c__corpo"><div class="fb-c__bolha"><div class="fb-c__nome">Elżbieta Wójcik</div><div class="fb-c__txt">Wydałam fortunę na drogie apteczne suplementy i nic nie pomagało na problemy z koncentracją. Zacząłem tę kurację i po 3 tygodniach różnica jest ogromna. Moja neurolog już o tym wspomniała i cieszę się, że trafiłam na to wideo</div><span class="fb-c__reac"><span class="fb-ico fb-ico--like"><svg viewBox="0 0 24 24"><path fill="#fff" d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z"></path></svg></span><span class="fb-c__n">156</span></span></div><div class="fb-c__meta"><span class="fb-c__t">2 min</span><button type="button" class="fb-c__curtir">Lubię to</button><span>Odpowiedz</span></div></div></div>
+    <div class="fb-c"><img src="images/velho2.webp" alt="" loading="lazy"><div class="fb-c__corpo"><div class="fb-c__bolha"><div class="fb-c__nome">Jan Wiśniewski</div><div class="fb-c__txt">Stosuję od 4 dni i jestem zachwycony. Mój umysł jest o wiele jaśniejszy i w końcu pamiętam wszystko. Jestem w szoku!!</div><span class="fb-c__reac"><span class="fb-ico fb-ico--like"><svg viewBox="0 0 24 24"><path fill="#fff" d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z"></path></svg></span><span class="fb-c__n">19</span></span></div><div class="fb-c__meta"><span class="fb-c__t">3 min</span><button type="button" class="fb-c__curtir">Lubię to</button><span>Odpowiedz</span></div></div></div>
+    <div class="fb-c"><img src="images/velho3.webp" alt="" loading="lazy"><div class="fb-c__corpo"><div class="fb-c__bolha"><div class="fb-c__nome">Krzysztof Zieliński</div><div class="fb-c__txt">Ludzie, to naprawdę działa!!! Moja żona nie mogła się skupić na niczym i stale narzekała na zaniki pamięci. Mijają 3 tygodnie, odkąd zaczęła tę kurację. Wczoraj powiedziała mi, że w końcu czuje pełną jasność umysłu</div><span class="fb-c__reac"><span class="fb-ico fb-ico--like"><svg viewBox="0 0 24 24"><path fill="#fff" d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z"></path></svg></span><span class="fb-c__n">43</span></span></div><div class="fb-c__meta"><span class="fb-c__t">3 min</span><button type="button" class="fb-c__curtir">Lubię to</button><span>Odpowiedz</span></div></div></div>
+    <div class="fb-c"><img src="images/mulher3.webp" alt="" loading="lazy"><div class="fb-c__corpo"><div class="fb-c__bolha"><div class="fb-c__nome">Maria Kamińska</div><div class="fb-c__txt">U mnie w domu też zadziałało! Pamięć wróciła, koncentracja się poprawiła, a do tego mam znacznie więcej energii. Polecam każdemu. To prawdziwy dar od losu.</div><span class="fb-c__reac"><span class="fb-ico fb-ico--like"><svg viewBox="0 0 24 24"><path fill="#fff" d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z"></path></svg></span><span class="fb-c__n">123</span></span></div><div class="fb-c__meta"><span class="fb-c__t">3 min</span><button type="button" class="fb-c__curtir">Lubię to</button><span>Odpowiedz</span></div></div></div>
+    <div class="fb-c resp"><img src="images/mulher4.webp" alt="" loading="lazy"><div class="fb-c__corpo"><div class="fb-c__bolha"><div class="fb-c__nome">Katarzyna Lewandowska</div><div class="fb-c__txt"><b>Dr. Ewa Kowalska</b> gratulacje i dziękuję za podzielenie się tym przepisem z nami!</div><span class="fb-c__reac"><span class="fb-ico fb-ico--like"><svg viewBox="0 0 24 24"><path fill="#fff" d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z"></path></svg></span><span class="fb-c__n">217</span></span></div><div class="fb-c__meta"><span class="fb-c__t">5 min</span><button type="button" class="fb-c__curtir">Lubię to</button><span>Odpowiedz</span></div></div></div>
+    <div class="fb-c"><img src="images/mulher5.webp" alt="" loading="lazy"><div class="fb-c__corpo"><div class="fb-c__bolha"><div class="fb-c__nome">Magdalena Dąbrowska</div><div class="fb-c__txt">Bardzo dobre, to naprawdę działa! Myślałam, że to kłamstvo, ale działa! haha</div><span class="fb-c__reac"><span class="fb-ico fb-ico--like"><svg viewBox="0 0 24 24"><path fill="#fff" d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z"></path></svg></span><span class="fb-c__n">38</span></span></div><div class="fb-c__meta"><span class="fb-c__t">8 min</span><button type="button" class="fb-c__curtir">Lubię to</button><span>Odpowiedz</span></div></div></div>
+    <div class="fb-c"><img src="images/mulher6.webp" alt="" loading="lazy"><div class="fb-c__corpo"><div class="fb-c__bolha"><div class="fb-c__nome">Karolina Woźniak</div><div class="fb-c__txt">Dziś rano obudziłam się z niesamowitą jasnością umysłu. Jestem W SZOKU!!!! Ludzie! Nigdy wcześniej czegoś takiego nie doświadczyłam</div><span class="fb-c__reac"><span class="fb-ico fb-ico--like"><svg viewBox="0 0 24 24"><path fill="#fff" d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z"></path></svg></span><span class="fb-c__n">736</span></span></div><div class="fb-c__meta"><span class="fb-c__t">12 min</span><button type="button" class="fb-c__curtir">Lubię to</button><span>Odpowiedz</span></div></div></div>
+    <div class="fb-c"><img src="images/mulher7.webp" alt="" loading="lazy"><div class="fb-c__corpo"><div class="fb-c__bolha"><div class="fb-c__nome">Agnieszka Kozłowska</div><div class="fb-c__txt">Niesamowite, mam 47 lat i po ciągłym stresie w pracy moja pamięć nigdy nie była taka sama. Teraz jest o wiele lepiej.</div><span class="fb-c__reac"><span class="fb-ico fb-ico--like"><svg viewBox="0 0 24 24"><path fill="#fff" d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z"></path></svg></span><span class="fb-c__n">16</span></span></div><div class="fb-c__meta"><span class="fb-c__t">13 min</span><button type="button" class="fb-c__curtir">Lubię to</button><span>Odpowiedz</span></div></div></div>
+    <div class="fb-c"><img src="images/velha1.webp" alt="" loading="lazy"><div class="fb-c__corpo"><div class="fb-c__bolha"><div class="fb-c__nome">Barbara Mazur</div><div class="fb-c__txt">Sensacyjnie, uwielbiam to!!</div><span class="fb-c__reac"><span class="fb-ico fb-ico--like"><svg viewBox="0 0 24 24"><path fill="#fff" d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z"></path></svg></span><span class="fb-c__n">37</span></span></div><div class="fb-c__meta"><span class="fb-c__t">14 min</span><button type="button" class="fb-c__curtir">Lubię to</button><span>Odpowiedz</span></div></div></div>
+    <div class="fb-c resp"><img src="images/mulher8.webp" alt="" loading="lazy"><div class="fb-c__corpo"><div class="fb-c__bolha"><div class="fb-c__nome">Monika Grabowska</div><div class="fb-c__txt"><b>Dr. Ewa Kowalska</b> jesteś światłem w moim życiu!!</div><span class="fb-c__reac"><span class="fb-ico fb-ico--like"><svg viewBox="0 0 24 24"><path fill="#fff" d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z"></path></svg></span><span class="fb-c__n">42</span></span></div><div class="fb-c__meta"><span class="fb-c__t">15 min</span><button type="button" class="fb-c__curtir">Lubię to</button><span>Odpowiedz</span></div></div></div>
+    <div class="fb-c resp"><img src="images/mulher10.webp" alt="" loading="lazy"><div class="fb-c__corpo"><div class="fb-c__bolha"><div class="fb-c__nome">Beata Pawłowska</div><div class="fb-c__txt">Baaardzo dobrze!!! Dziękuję, że się tym z nami podzieliłaś!!</div><span class="fb-c__reac"><span class="fb-ico fb-ico--like"><svg viewBox="0 0 24 24"><path fill="#fff" d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z"></path></svg></span><span class="fb-c__n">51</span></span></div><div class="fb-c__meta"><span class="fb-c__t">18 min</span><button type="button" class="fb-c__curtir">Lubię to</button><span>Odpowiedz</span></div></div></div>
+  </div>
+</section>
+
+
+</main>
+
+<footer style="background-color: #000; color: #fff; padding: 20px 15px; font-size: 14px; line-height: 1.6; text-align: center;">
+<div style="max-width: 800px; margin: 0 auto;">
+    <p>Wszystkie prawa zastrzeżone.</p>
+    <p>
+    Wszystkie oferowane produkty są legalne, z gwarancją dostawy. Pełna odpowiedzialność za ten materiał reklamowy spoczywa na firmie.
+    </p>
+</div>
+</footer>
+
+<script>
+/* ---------- comentarios estilo Facebook ---------- */
+(function () {
+  var IMG = '../_files/imagens/';
+  var ICO_LIKE = '<span class="fb-ico fb-ico--like"><svg viewBox="0 0 24 24"><path fill="#fff" d="M2 21h4V9H2v12zm20-11c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 1 6.6 7.6C6.2 8 6 8.5 6 9v10c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-2z"/></svg></span>';
+
+  var comentarios = [
+    { n:'Piotr Nowak', img:'velho1.webp', t:'1 min', l:62, txt:'Pani Doktor, jestem z Warszawy. Stosuję tę kurację na pamięć od 6 dni i jestem pod ogromnym wrażeniem! Moja koncentracja jest znacznie lepsza, a mgła mózgowa całkowicie zniknęła. Dziękuję! 😍' },
+    { n:'Anna Kowalska', img:'mulher1.webp', t:'1 min', l:14, resp:true, tag:'Piotr Nowak', txt:'też jestem z Warszawy! U mnie w domu mama (68 lat) stosuje. Miała ogromne problemy z pamięcią i zapominaniem, a teraz jest o wiele lepiej. To naprawdę bardzo pomaga.' },
+    { n:'Elżbieta Wójcik', img:'mulher2.webp', t:'2 min', l:156, txt:'Wydałam fortunę na drogie apteczne suplementy i nic nie pomagało na problemy z koncentracją. Zacząłem tę kurację i po 3 tygodniach różnica jest ogromna. Moja neurolog już o tym wspomniała i cieszę się, że trafiłam na to wideo' },
+    { n:'Jan Wiśniewski', img:'velho2.webp', t:'3 min', l:19, txt:'Stosuję od 4 dni i jestem zachwycony. Mój umysł jest o wiele jaśniejszy i w końcu pamiętam wszystko. Jestem w szoku!!' },
+    { n:'Krzysztof Zieliński', img:'velho3.webp', t:'3 min', l:43, txt:'Ludzie, to naprawdę działa!!! Moja żona nie mogła się skupić na niczym i stale narzekała na zaniki pamięci. Mijają 3 tygodnie, odkąd zaczęła tę kurację. Wczoraj powiedziała mi, że w końcu czuje pełną jasność umysłu' },
+    { n:'Maria Kamińska', img:'mulher3.webp', t:'3 min', l:123, txt:'U mnie w domu też zadziałało! Pamięć wróciła, koncentracja się poprawiła, a do tego mam znacznie więcej energii. Polecam każdemu. To prawdziwy dar od losu.' },
+    { n:'Katarzyna Lewandowska', img:'mulher4.webp', t:'5 min', l:217, resp:true, tag:'Dr. Ewa Kowalska', txt:'gratulacje i dziękuję za podzielenie się tym przepisem z nami!' },
+    { n:'Magdalena Dąbrowska', img:'mulher5.webp', t:'8 min', l:38, txt:'Bardzo dobre, to naprawdę działa! Myślałam, że to kłamstvo, ale działa! haha' },
+    { n:'Karolina Woźniak', img:'mulher6.webp', t:'12 min', l:736, txt:'Dziś rano obudziłam się z niesamowitą jasnością umysłu. Jestem W SZOKU!!!! Ludzie! Nigdy wcześniej czegoś takiego nie doświadczyłam' },
+    { n:'Agnieszka Kozłowska', img:'mulher7.webp', t:'13 min', l:16, txt:'Niesamowite, mam 47 lat i po ciągłym stresie w pracy moja pamięć nigdy nie była taka sama. Teraz jest o wiele lepiej.' },
+    { n:'Barbara Mazur', img:'velha1.webp', t:'14 min', l:37, txt:'Sensacyjnie, uwielbiam to!!' },
+    { n:'Monika Grabowska', img:'mulher8.webp', t:'15 min', l:42, resp:true, tag:'Dr. Ewa Kowalska', txt:'jesteś światłem w moim życiu!!' },
+    { n:'Beata Pawłowska', img:'mulher10.webp', t:'18 min', l:51, resp:true, txt:'Baaardzo dobrze!!! Dziękuję, że się tym z nami podzieliłaś!!' }
+  ];
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&':'&', '<':'<', '>':'>', '"':'"', "'":''' }[c];
+    });
+  }
+
+  function montar(c) {
+    var el = document.createElement('div');
+    el.className = 'fb-c' + (c.resp ? ' resp' : '');
+    el.innerHTML =
+      '<img src="' + IMG + c.img + '" alt="" loading="lazy">' +
+      '<div class="fb-c__corpo">' +
+        '<div class="fb-c__bolha">' +
+          '<div class="fb-c__nome">' + esc(c.n) + '</div>' +
+          '<div class="fb-c__txt">' + (c.tag ? '<b>' + esc(c.tag) + '</b> ' : '') + esc(c.txt) + '</div>' +
+          '<span class="fb-c__reac">' + ICO_LIKE + '<span class="fb-c__n">' + c.l + '</span></span>' +
+        '</div>' +
+        '<div class="fb-c__meta"><span class="fb-c__t">' + esc(c.t) + '</span>' +
+        '<button type="button" class="fb-c__curtir">Lubię to</button><span>Odpowiedz</span></div>' +
+      '</div>';
+
+    var btn = el.querySelector('.fb-c__curtir');
+    var n = el.querySelector('.fb-c__n');
+    btn.addEventListener('click', function () {
+      btn.classList.toggle('ativo');
+      c.l += btn.classList.contains('ativo') ? 1 : -1;
+      n.textContent = c.l;
+    });
+    return el;
+  }
+
+  var feed = document.getElementById('fbFeed');
+  comentarios.forEach(function (c) { feed.appendChild(montar(c)); });
+
+  /* curtir o post */
+  var like = document.getElementById('fbLike');
+  var cont = document.getElementById('fbLikeCount');
+  like.addEventListener('click', function () {
+    like.classList.toggle('ativo');
+    like.classList.remove('pulso'); void like.offsetWidth; like.classList.add('pulso');
+    cont.textContent = like.classList.contains('ativo') ? 'Ty i 12 tys. innych osób' : '12 tys.';
+  });
+})();
+</script>
+
+
+
+</body></html>
