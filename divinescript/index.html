@@ -1,16 +1,39 @@
-<div style="position: relative; width: 100%; height: 100vh; margin: 0; padding: 0; overflow: hidden; background: #fff;">
+<div style="max-width: 414px; width: 100%; height: 100vh; margin: 0 auto; position: relative; overflow-x: hidden; background: #fff; box-shadow: 0 0 20px rgba(0,0,0,0.15);">
     
-    <!-- ================= 1. SEU BANNER FIXO NO TOPO ================= -->
-    <!-- Ele fica grudado na tela (position: fixed) e não some quando o usuário rola a página -->
-    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 80px; z-index: 99999; background: #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
-        <img src="URL_DO_SEU_BANNER_TOPO.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Meu Banner de Topo">
+    <!-- ================= TOPO FIXO (Contador + Seu Banner) ================= -->
+    <div style="position: fixed; top: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 414px; z-index: 99999; background: #fff;">
+        
+        <!-- 1. BARRA DO CONTADOR (igual ao original do print) -->
+        <div style="background-color: #ffcc00; color: #111; padding: 8px 10px; text-align: center; font-family: Arial, sans-serif; font-weight: bold; font-size: 11px; display: flex; justify-content: center; align-items: center; gap: 6px;">
+            <span>A RENDELÉSE CSAK ENNYI IDEIG VAN FENNTARTVA</span>
+            <span id="timer" style="background-color: #c0392b; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 13px;">01:45</span>
+        </div>
+
+        <!-- 2. SEU BANNER CUSTOMIZADO LOGO ABAIXO DO CONTADOR -->
+        <div style="width: 100%; height: 80px;">
+            <img src="URL_DO_SEU_BANNER_TOPO.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Meu Banner de Topo">
+        </div>
     </div>
 
-    <!-- ================= 2. PÁGINA EXTERNA INTEIRA COM ROLAGEM ================= -->
-    <!-- Ocupa 100% da tela, rola normalmente por baixo do seu banner fixo, sem cortes embaixo -->
+    <!-- ================= PÁGINA EXTERNA EM VERSÃO MOBILE ================= -->
+    <!-- O 'padding-top' empurra o conteúdo para baixo para não ficar escondido atrás do topo fixo -->
     <iframe src="https://www.vitalis-eu.shop/vit-hun/01uveg?fn=AFF-WL-HUN" 
-            style="width: 100%; height: 100%; border: none; display: block;" 
+            style="width: 100%; height: 100%; border: none; display: block; padding-top: 115px; box-sizing: border-box;" 
             scrolling="yes">
     </iframe>
 
 </div>
+
+<!-- Script funcional para o contador rodar em tempo real -->
+<script>
+    let tempo = 105; // 1 minuto e 45 segundos em segundos
+    const timerEl = document.getElementById('timer');
+    setInterval(() => {
+        if (tempo > 0) {
+            tempo--;
+            let min = Math.floor(tempo / 60);
+            let seg = tempo % 60;
+            timerEl.textContent = (min < 10 ? '0' : '') + min + ':' + (seg < 10 ? '0' : '') + seg;
+        }
+    }, 1000);
+</script>
