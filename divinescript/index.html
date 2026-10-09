@@ -1,19 +1,16 @@
-<div style="width: 100%; max-width: 600px; height: 750px; position: relative; margin: 0 auto; overflow: hidden; background: #fff;">
+<div style="position: relative; width: 100%; height: 100vh; margin: 0; padding: 0; overflow: hidden; background: #fff;">
     
-    <!-- ================= 1. SEU BANNER CUSTOMIZADO NO TOPO ================= -->
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 90px; z-index: 100;">
+    <!-- ================= 1. SEU BANNER FIXO NO TOPO ================= -->
+    <!-- Ele fica grudado na tela (position: fixed) e não some quando o usuário rola a página -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 80px; z-index: 99999; background: #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
         <img src="URL_DO_SEU_BANNER_TOPO.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Meu Banner de Topo">
     </div>
 
-    <!-- ================= 2. PÁGINA EXTERNA NO MIOLO ================= -->
-    <!-- O 'top: -140px' joga a página para cima para esconder o banner original de cima -->
+    <!-- ================= 2. PÁGINA EXTERNA INTEIRA COM ROLAGEM ================= -->
+    <!-- Ocupa 100% da tela, rola normalmente por baixo do seu banner fixo, sem cortes embaixo -->
     <iframe src="https://www.vitalis-eu.shop/vit-hun/01uveg?fn=AFF-WL-HUN" 
-            style="width: 100%; height: 1050px; position: absolute; top: -140px; left: 0; border: none; z-index: 1;">
+            style="width: 100%; height: 100%; border: none; display: block;" 
+            scrolling="yes">
     </iframe>
-
-    <!-- ================= 3. SEU BANNER CUSTOMIZADO NO RODAPÉ ================= -->
-    <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 90px; z-index: 100;">
-        <img src="URL_DO_SEU_BANNER_RODAPE.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Meu Banner de Rodapé">
-    </div>
 
 </div>
