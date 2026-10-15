@@ -50,6 +50,7 @@
     <!-- Video section -->
     <div class="video-container">
 <vturb-smartplayer id="vid-6ad0483ed23d2df631fab478" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 178.21782178217822% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/0a8b4b97-a0e3-4633-ac8a-9914c0209ef6/players/6ad0483ed23d2df631fab478/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+
       <style>
   .esconder {
     display: none;
@@ -59,9 +60,20 @@
 <script>
   var delaySeconds = 5;
   var player = document.querySelector("vturb-smartplayer");
+  
   player.addEventListener("player:ready", function() {
     player.displayHiddenElements(delaySeconds, [".esconder"], {
-      persist: true
+      persist: true,
+      onShow: function() {
+        // Assim que a VTurb remove o display: none e exibe o bloco, o scroll dispara suavemente
+        var kitsSection = document.querySelector(".kits-section");
+        if (kitsSection) {
+          kitsSection.scrollIntoView({ 
+            behavior: "smooth", 
+            block: "start" 
+          });
+        }
+      }
     });
   });
 </script>
