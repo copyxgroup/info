@@ -170,34 +170,7 @@
     <!-- ===== FIM BLOCO DE KITS ===== -->
     </div>
 
-    <script>
-  var delaySeconds = 5; // Segundo exato que o kit de 5 é anunciado
-  var player = document.querySelector("vturb-smartplayer");
-
-  player.addEventListener("player:ready", function() {
-    player.displayHiddenElements(delaySeconds, [".esconder"], {
-      persist: true
-    });
-
-    // Função para rodar junto com a liberação dos elementos
-    player.on("timeupdate", function(currentTime) {
-      // Garante que o scroll aconteça apenas uma vez ao atingir o segundo
-      if (currentTime >= delaySeconds && !window.hasScrolledToKits) {
-        window.hasScrolledToKits = true;
-        
-        var kitsSection = document.querySelector(".kits-section");
-        if (kitsSection) {
-          kitsSection.scrollIntoView({ 
-            behavior: "smooth", 
-            block: "start" 
-          });
-        }
-      }
-    });
-  });
-</script>
-
-    <!-- Script de rastreamento do Initiate Checkout para os botões -->
+       <!-- Script de rastreamento do Initiate Checkout para os botões -->
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     document.body.addEventListener('click', function(event) {
