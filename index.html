@@ -1,12 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pausa para descanso</title>
+  <script>
+    window._plt = window._plt || (
+      performance.timeOrigin ? performance.timeOrigin + performance.now() : Date.now()
+    );
+  </script>
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://license.vturb.com">
+  <link rel="preload" href="https://scripts.converteai.net/0a8b4b97-a0e3-4633-ac8a-9914c0209ef6/players/6b009bba1612899403cfc715/v4/player.js" as="script">
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+  <link rel="preload" href="https://cdn.converteai.net/0a8b4b97-a0e3-4633-ac8a-9914c0209ef6/6b009b994621328d6283b836/main.m3u8" as="fetch">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #fdfdfd;
+      color: #202020;
+      font-family: system-ui, sans-serif;
+      border-block-start: 3px solid #363636;
+    }
+
+    .banner {
+      margin: 10px 2px 0;
+      padding: 10px 16px;
+      text-align: center;
+      background: #ebe4f6;
+      border-block-end: 1px solid #d9cceb;
+    }
+
+    h1 {
+      margin: 0;
+      color: #5d4383;
+      font-size: clamp(1rem, 2.8vw, 1.2rem);
+      font-weight: 650;
+      line-height: 1.4;
+      letter-spacing: .025em;
+    }
+
+    main {
+      max-width: 760px;
+      margin-inline: auto;
+      padding: 22px 16px 20px;
+    }
+
+    .updated {
+      margin: 0 0 32px;
+      color: #6e6e6e;
+      font-size: .85rem;
+      line-height: 1.5;
+    }
+
+    .player {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin-inline: auto;
+    }
+
+    .vturb-player-placeholder {
+      position: relative;
+      width: 100%;
+      padding: 178.21782178217822% 0 0;
+      z-index: 0;
+      background-color: #000;
+    }
+
+    .player-message {
+      max-width: 400px;
+      margin: 12px auto 0;
+      color: #6e6e6e;
+      text-align: center;
+      font-size: .85rem;
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 16px 12px 20px;
+      }
+
+      .updated {
+        margin-block-end: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-    
+  <header class="banner">
+    <h1>Pausa para descanso</h1>
+  </header>
+
+  <main>
+    <p class="updated">Atualizado em <time datetime="2026-11-20">20/11/2026</time></p>
+
+    <vturb-smartplayer id="vid-6b009bba1612899403cfc715" class="player">
+      <div class="vturb-player-placeholder"></div>
+    </vturb-smartplayer>
+    <script async src="https://scripts.converteai.net/0a8b4b97-a0e3-4633-ac8a-9914c0209ef6/players/6b009bba1612899403cfc715/v4/player.js"></script>
+    <noscript>
+      <p class="player-message">Ative o JavaScript para assistir ao vídeo.</p>
+    </noscript>
+  </main>
 </body>
 </html>
