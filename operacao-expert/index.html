@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Operação Expert</title><link rel="stylesheet" href="style.css"><script src="supabase.js" defer></script><script src="app.js" defer></script></head>
+<body class="login-active">
+<aside id="panel-sidebar" hidden><div class="brand"><span>∞</span><strong>Operação Expert<small>Facebook Ads</small></strong></div><nav aria-label="Áreas do painel"></nav><div class="sidebar-footer">
+  <button type="button" id="theme-toggle" role="switch" aria-checked="false">
+    <span>Modo escuro</span><span class="theme-track" aria-hidden="true"></span>
+  </button>
+  <p class="local">Prévia · Dados neste navegador</p>
+</div></aside>
+<main id="panel-main" hidden><header><div>Operação / Meta Ads</div><div class="cloud-actions"><button type="button" id="cloud-refresh" class="quiet" hidden>Atualizar dados</button><button type="button" id="cloud-toggle" class="quiet">Entrar na equipe</button></div></header><section id="view"></section></main>
+<dialog id="editor"><form id="form"><div class="dialog-head"><h2 id="form-title"></h2><button type="button" id="close" class="quiet" aria-label="Fechar">×</button></div><div id="fields"></div><p id="error" role="alert"></p><footer><button type="button" class="quiet" id="cancel">Cancelar</button><button class="primary">Salvar</button></footer></form></dialog>
+<section id="cloud-login" aria-labelledby="login-title">
+  <div class="login-card">
+    <div class="brand"><span aria-hidden="true">∞</span><strong>Operação Expert</strong></div>
+    <h1 id="login-title">Entrar na equipe</h1>
+    <form id="cloud-form" method="post">
+      <div class="cloud-fields">
+        <label>E-mail<input name="email" type="email" autocomplete="username" required></label>
+        <label>Senha<input name="password" type="password" autocomplete="current-password" required></label>
+      </div>
+      <p id="cloud-error" role="alert"></p>
+      <button id="cloud-submit" class="primary" disabled>Entrar</button>
+    </form>
+    <button type="button" id="cloud-local" class="quiet" disabled>Abrir modo local</button>
+  </div>
+</section>
+<p id="cloud-status" role="status"></p>
+</body></html>
