@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0b0b">
+<title>Dra. Aline Freitas | Viver Sem Dietas®</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0b0b;--surface:#151515;--line:#292929;--text:#f7f5f2;--muted:#b1ada8;--accent:#d9e9b8}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:1rem/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+main{width:min(100%,37rem);margin-inline:auto;padding:0 clamp(1rem,5vw,2rem)}
+p,h1,h2,ul{margin:0}
+.profile{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:clamp(.75rem,4vw,1.5rem);row-gap:1rem;align-items:start;padding:1.6rem 0 1.35rem}
+.profile .story-ring{grid-row:1 / span 2;width:clamp(4.75rem,23vw,8.5rem);margin-top:.125rem}
+.profile h1{font-size:clamp(1.1rem,4.5vw,1.65rem);overflow-wrap:anywhere;margin:0 0 .4rem}
+.profile-name,.bio{font-size:.9375rem}
+.stats{display:flex;flex-wrap:wrap;gap:.35rem .9rem;font-size:.875rem;margin-top:.6rem}
+.stats span{white-space:nowrap}
+.bio{grid-column:2}
+@media(max-width:540px){.bio{grid-column:1/-1}}
+.story-ring{width:clamp(4rem,19vw,5.25rem);aspect-ratio:1;padding:2px;border-radius:50%;background:conic-gradient(from 210deg,#ffbe45,#ff6235,#e52f88,#a441d7,#e52f88,#ffbe45)}
+.story-ring img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border:3px solid var(--bg);border-radius:50%}
+h1{font-size:clamp(1.5rem,6vw,2rem);line-height:1.15;letter-spacing:-.035em;margin:.15rem 0 .25rem}
+.video{padding:1.1rem 0 1.5rem;border-top:1px solid var(--line)}
+h2{font-size:1.35rem;line-height:1.2;letter-spacing:-.025em}
+.player{width:min(100%,23rem);margin:0 auto}
+.video-preview{position:relative;isolation:isolate;overflow:hidden;aspect-ratio:560/994;border:1px solid var(--line);border-radius:1rem;background:var(--surface)}
+.video-preview img{display:block;width:100%;height:100%;object-fit:cover}
+.video-preview::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 65%,#000c);pointer-events:none}
+.video-note{position:absolute;z-index:1;bottom:.85rem;left:.85rem;right:.85rem;margin:auto;width:max-content;max-width:calc(100% - 1.7rem);text-align:center;padding:.4rem .75rem;background:#151515;border:1px solid #ffffff40;border-radius:2rem;font-size:.8125rem}
+.comments{border-top:1px solid var(--line);padding:1.3rem 0 max(1.3rem,env(safe-area-inset-bottom))}
+.comments>p{color:var(--muted);font-size:.875rem;margin-top:.25rem}
+.comments ul{list-style:none;padding:0;margin-top:.45rem}
+.comment{display:grid;grid-template-columns:2.4rem minmax(0,1fr);gap:.75rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+li:last-child{border-bottom:0;padding-bottom:0}
+.avatar{display:grid;place-items:center;align-self:start;aspect-ratio:1;border-radius:50%;background:#343228;color:#f9e7bb;font-size:.8125rem;font-weight:750}
+li:nth-child(2n) .avatar{background:#343044;color:#e9dcff}
+li:nth-child(3n) .avatar{background:#2c3933;color:#d3eddb}
+.avatar img{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit}
+.comment strong{display:block;font-size:.875rem;margin-bottom:.125rem}
+
+.post-actions{display:flex;align-items:center;gap:.4rem;margin-bottom:.4rem}
+.icon-button,.comment-meta button{border:0;background:transparent;color:inherit;cursor:pointer;font:inherit}
+.icon-button{display:inline-flex;gap:.35rem;align-items:center;justify-content:center;min-width:2.5rem;min-height:2.75rem;padding:.35rem;text-decoration:none}
+.icon-button svg{width:1.4rem;height:1.4rem;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.icon-button[aria-pressed="true"]{color:#ff6686}
+.icon-button[aria-pressed="true"] svg{fill:currentColor}
+.post-save{margin-left:auto}
+.comments .post-liked{color:var(--text);margin:0 0 1rem}
+.comment{grid-template-columns:2.4rem minmax(0,1fr) 2.5rem;gap:.65rem}
+.comment-body{min-width:0;overflow-wrap:anywhere}
+.comment-like{align-self:start;color:var(--muted)}
+.comment-like svg{width:1.125rem;height:1.125rem}
+.comment-meta{display:flex;align-items:center;flex-wrap:wrap;gap:.2rem .7rem;color:var(--muted);font-size:.8125rem;margin-top:.25rem}
+.comment-meta button{min-height:2.2rem;padding:0;font-weight:650}
+.comment details{margin-top:.45rem}
+.comment summary{cursor:pointer;color:var(--muted);font-size:.875rem;padding:.25rem 0}
+.comments .replies{border-left:1px solid var(--line);padding-left:.6rem;margin-right:-3rem}
+.replies .comment{grid-template-columns:1.85rem minmax(0,1fr) 2.25rem;gap:.45rem;padding:.65rem 0}
+.replies .comment-like{min-width:2.25rem}
+.reply-form,.test-reply{margin:.45rem 0;padding:.5rem;background:var(--surface);border-radius:.4rem}
+.reply-form input{display:block;width:100%;font:inherit;margin:.25rem 0}
+.reply-form button{font:inherit}
+.share-notice{font-size:.875rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+  <section class="profile" aria-label="Perfil">
+    <div class="story-ring"><img src="aline.webp" alt="Retrato de Aline Freitas" width="192" height="192"></div>
+    <div>
+      <h1>eusoualinefreitas</h1>
+      <p class="profile-name">Dra. Aline Freitas | Viver Sem Dietas®</p>
+      <p class="stats"><span><strong>3.399</strong> posts</span> <span><strong>785 mil</strong> seguidores</span> <span><strong>182</strong> seguindo</span></p>
+    </div>
+    <div class="bio">
+      <p>Emagrecimento 40+ sem dietas e sem efeito sanfona</p>
+      <p>Harvard Medical School | Doutora em Nutrição Integrativa</p>
+      <p>+36 mil mulheres transformadas</p>
+    </div>
+  </section>
+
+  <section class="video" aria-label="Vídeo">
+    <div class="player" id="player-vturb">
+      <!-- Substitua o bloco video-preview pelo embed oficial da Vturb. -->
+      <div class="video-preview">
+        <img src="capa-vsl.webp" alt="Aline Freitas sentada no sofá, segurando um livro" width="560" height="994" fetchpriority="high">
+        <p class="video-note">Prévia da capa · vídeo em preparação</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="comments" aria-labelledby="comments-title">
+    <div class="post-actions" aria-label="Ações da publicação">
+      <button class="icon-button" type="button" aria-label="Curtir publicação" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+      <a class="icon-button" href="#comments-title" aria-label="Ir aos comentários"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a9 9 0 0 1-9 9c-1.5 0-2.8-.3-4-.9L3 21l1.4-5A9 9 0 1 1 21 11.5Z"/></svg><span>422</span></a>
+      <button class="icon-button" type="button" aria-label="Republicar nesta simulação" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 3 4 4-4 4M18 7H7a4 4 0 0 0-4 4v2m7 8-4-4 4-4m-4 4h11a4 4 0 0 0 4-4v-2"/></svg><span data-count>22</span></button>
+      <button class="icon-button" type="button" data-share aria-label="Compartilhar link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2 9 15M22 2l-7 20-6-7-7-6 20-7Z"/></svg></button>
+      <button class="icon-button post-save" type="button" aria-label="Salvar publicação" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v19l-7-5-7 5V3Z"/></svg></button>
+    </div>
+    <p class="post-liked">Curtido por <strong>mariavaldelidefreitas</strong> e <strong>outras pessoas</strong></p>
+    <h2 id="comments-title" tabindex="-1">Comentários relevantes</h2>
+    <ul><li class="comment">
+      <span class="avatar"><img src="avatares/feira.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Camila Oliveira</strong><p>Juro que achei que era só mais um daqueles vídeos loooongos e chatos. Parabéns, Fernado, por compartilhar algo que realmente FUNCIONA!</p>
+        <div class="comment-meta"><span>4 h</span><button type="button" data-reply>Responder</button><span><span data-count>13</span> curtidas</span></div>
+        <details open><summary>Respostas (4)</summary><ul class="replies"><li class="comment">
+      <span class="avatar"><img src="avatares/montanha.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Marcos Fernandes</strong><p>O Fernando é top demais 👏</p>
+        <div class="comment-meta"><span>2 h</span><button type="button" data-reply>Responder</button><span><span data-count>15</span> curtidas</span></div>
+
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Marcos Fernandes" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li><li class="comment">
+      <span class="avatar"><img src="avatares/escritorio.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Marcelo Santos</strong><p>Esse Iogurte é um fazedor de milagres, sério. Eu experimentei esse tal Iogurte por 7 dias e já perdi quase todas as minhas roupas</p>
+        <div class="comment-meta"><span>1 h</span><button type="button" data-reply>Responder</button><span><span data-count>10</span> curtidas</span></div>
+
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Marcelo Santos" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li><li class="comment">
+      <span class="avatar"><img src="avatares/salvador.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Juliana Costa</strong><p>Exatamente!! Estou me movimentando mais, dormindo melhor e simplesmente me sinto mais leve, sabe?</p>
+        <div class="comment-meta"><span>30 m</span><button type="button" data-reply>Responder</button><span><span data-count>7</span> curtidas</span></div>
+
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Juliana Costa" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li><li class="comment">
+      <span class="avatar"><img src="avatares/praca.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Lucas Ferreira</strong><p>Eu também! Minhas calças não apertam mais, sinto que estou 30 anos mais jovem agora 😂</p>
+        <div class="comment-meta"><span>4 m</span><button type="button" data-reply>Responder</button><span><span data-count>3</span> curtidas</span></div>
+
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Lucas Ferreira" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li></ul></details>
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Camila Oliveira" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li><li class="comment">
+      <span class="avatar"><img src="avatares/rua-historica.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Diego Rodrigues</strong><p>Eu não sei, pessoal, isso é verdade mesmo ou só exagero ??</p>
+        <div class="comment-meta"><span>3 h</span><button type="button" data-reply>Responder</button><span><span data-count>20</span> curtidas</span></div>
+        <details open><summary>Respostas (2)</summary><ul class="replies"><li class="comment">
+      <span class="avatar"><img src="avatares/quintal.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Fernanda Alves</strong><p>Diego, eu também estava super cética, mas é real. Experimente por alguns dias e veja. Fiquei chocada com a rapidez com que minha barriga ficou mais reta e me deu mais energia...</p>
+        <div class="comment-meta"><span>42 m</span><button type="button" data-reply>Responder</button><span><span data-count>28</span> curtidas</span></div>
+
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Fernanda Alves" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li><li class="comment">
+      <span class="avatar"><img src="avatares/cafe.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Andrea Oliveira</strong><p>Eu também hesitei, mas os desejos e a gordura teimosa estavam ficando insuportáveis. Só para você saber, eu não conseguia nem me abaixar para amarrar meus sapatos sem ficar ofegante</p>
+        <div class="comment-meta"><span>10 m</span><button type="button" data-reply>Responder</button><span><span data-count>8</span> curtidas</span></div>
+
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Andrea Oliveira" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li></ul></details>
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Diego Rodrigues" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li><li class="comment">
+      <span class="avatar"><img src="avatares/copacabana.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Mariana Pereira</strong><p>Parabéns, Fernando! Com tantos golpes online, é raro ver algo que realmente seja útil. Você merece todo o sucesso e muito mais 👏👏</p>
+        <div class="comment-meta"><span>45 m</span><button type="button" data-reply>Responder</button><span><span data-count>37</span> curtidas</span></div>
+
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Mariana Pereira" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li><li class="comment">
+      <span class="avatar"><img src="avatares/livraria.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Larissa Martins</strong><p>Fernando, venho te acompanhando há anos, mas esse segredo do iogurte bariátrico é de longe a sua melhor dica. Eu tenho estudado isso diariamente há 3 meses e agora me sinto mais forte que meus filhos 😂😂</p>
+        <div class="comment-meta"><span>32 m</span><button type="button" data-reply>Responder</button><span><span data-count>14</span> curtidas</span></div>
+
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Larissa Martins" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li><li class="comment">
+      <span class="avatar"><img src="avatares/praia-barba.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Felipe Lima</strong><p>Estou tão feliz por ter assistido ao vídeo até o fim! Achei que poderia ser mais um truque da internet, mas agora vejo que é legítimo. Vou começar a receita do Iogurte Bariátrico amanhã 😯</p>
+        <div class="comment-meta"><span>30 m</span><button type="button" data-reply>Responder</button><span><span data-count>17</span> curtidas</span></div>
+
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Felipe Lima" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li><li class="comment">
+      <span class="avatar"><img src="avatares/varanda.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Fabrícia Almeida</strong><p>Fernando, você é MARAVILHOSO! Isso pode ter feito a gordura da barriga da minha mãe desaparecer!! Compartilhei seu vídeo com toda a minha família e amigos.</p>
+        <div class="comment-meta"><span>10 m</span><button type="button" data-reply>Responder</button><span><span data-count>5</span> curtidas</span></div>
+
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Fabrícia Almeida" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li><li class="comment">
+      <span class="avatar"><img src="avatares/jardim.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Beatriz Carvalho</strong><p>Que receita de iogurte é essa?</p>
+        <div class="comment-meta"><span>1 h</span><button type="button" data-reply>Responder</button><span><span data-count>13</span> curtidas</span></div>
+        <details open><summary>Respostas (3)</summary><ul class="replies"><li class="comment">
+      <span class="avatar"><img src="avatares/montanha.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Pedro Gomes</strong><p>Isso aconteceu comigo também!!</p>
+        <div class="comment-meta"><span>1 h</span><button type="button" data-reply>Responder</button><span><span data-count>15</span> curtidas</span></div>
+
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Pedro Gomes" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li><li class="comment">
+      <span class="avatar"><img src="avatares/praca.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Gustavo Ribeiro</strong><p>Ele explica isso logo no começo. Foi isso que eliminou a gordura teimosa e os desejos constantes causados por essa mudança hormonal 👀</p>
+        <div class="comment-meta"><span>1 h</span><button type="button" data-reply>Responder</button><span><span data-count>1</span> curtidas</span></div>
+
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Gustavo Ribeiro" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li><li class="comment">
+      <span class="avatar"><img src="avatares/jardim.webp" alt="" width="128" height="128" loading="lazy"></span>
+      <div class="comment-body">
+        <strong>Beatriz Carvalho</strong><p>Isso é incrível, obrigado pelo aviso. Com certeza vou experimentar!</p>
+        <div class="comment-meta"><span>1 h</span><button type="button" data-reply>Responder</button><span><span data-count>15</span> curtidas</span></div>
+
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Beatriz Carvalho" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li></ul></details>
+      </div>
+      <button class="icon-button comment-like" type="button" aria-label="Curtir comentário de Beatriz Carvalho" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.3 5.3 0 0 0-7.5 0L12 7.1l-1.3-1.3a5.3 5.3 0 0 0-7.5 7.5l1.3 1.3L12 22l7.5-7.4 1.3-1.3a5.3 5.3 0 0 0 0-7.5Z"/></svg></button>
+    </li></ul>
+  </section>
+</main>
+
+<script>
+const comments = document.querySelector('.comments')
+comments.addEventListener('click', async (event) => {
+  const button = event.target.closest('button')
+  if (!button) return
+  if (button.hasAttribute('aria-pressed')) {
+    const active = button.getAttribute('aria-pressed') === 'true'
+    button.setAttribute('aria-pressed', String(!active))
+    const count = button.closest('.comment')?.querySelector('[data-count]') ?? button.querySelector('[data-count]')
+    if (count) count.textContent = Number(count.textContent) + (active ? -1 : 1)
+  }
+  if (button.hasAttribute('data-reply')) {
+    const meta = button.closest('.comment-meta')
+    const existing = meta.nextElementSibling
+    if (existing?.matches('form')) {
+      existing.querySelector('input').focus()
+      return
+    }
+    const form = document.createElement('form')
+    form.className = 'reply-form'
+    form.innerHTML = '<label>Resposta de teste<input required maxlength="500"></label><button type="submit">Adicionar</button>'
+    meta.after(form)
+    const input = form.querySelector('input')
+    input.focus()
+    form.addEventListener('submit', (event) => {
+      event.preventDefault()
+      const message = input.value.trim()
+      if (!message) return
+      const result = document.createElement('p')
+      result.className = 'test-reply'
+      result.textContent = 'Sua resposta de teste: ' + message
+      form.before(result)
+      form.remove()
+      button.focus()
+    })
+  }
+  if (button.hasAttribute('data-share')) {
+    const url = window.location.href.split('#')[0]
+    try {
+      if (navigator.share) await navigator.share({title: document.title, url})
+      else {
+        await navigator.clipboard.writeText(url)
+        button.setAttribute('aria-label','Link copiado')
+        const notice = document.createElement('span')
+        notice.setAttribute('role','status')
+        notice.className = 'share-notice'
+        notice.textContent = 'Link copiado'
+        comments.querySelector('.share-notice')?.remove()
+        button.closest('.post-actions').after(notice)
+      }
+    } catch (error) {
+      if (error.name !== 'AbortError') window.prompt('Copie o link da página', url)
+    }
+  }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+Magra de Verdade
+
+Publique a pasta dist como raiz do site. Ela contém as páginas, o CSS, o JavaScript e as imagens. Para testar localmente use: python -m http.server 8000 --directory dist
+
+Páginas:
+  /aline-freitas-emag/pv-clara/
+  /aline-freitas-emag/pv-escura/
+  /aline-freitas-emag/emag-upsell-1/
+
+Em cada index.html, substitua o espaço reservado em #player-vturb pelo embed oficial, troque a chave de exemplo em listPitch pelo ID do vídeo e indique delay em segundos. Exemplo: 12min30s = 750. As páginas clara e escura exibem o pós-pitch para revisão até receber a configuração. Com o ID e o tempo configurados, os comentários ficam visíveis até o pitch. A partir desse ponto, os comentários somem e o pós-pitch aparece. O botão do upsell fica oculto até o tempo configurado.
+
+Configure checkoutUrl nas páginas clara e escura para ativar o botão de compra. O upsell já contém o link Hubla.
+
+Para gerar novamente as versões clara e escura, edite os fragmentos de pós-pitch e o arquivo vturb-head.html e execute python gerar-versoes.py. Alterações manuais nos index.html gerados precisam ser reaplicadas após a geração. O index.html do upsell é independente.

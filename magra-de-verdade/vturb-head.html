@@ -1,0 +1,87 @@
+  <script>window.pixelId = '6b09caf96b7a09589d0700ab'</script>
+  <script src="https://cdn.utmify.com.br/scripts/pixel/pixel.js" async defer></script>
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+  <style>
+    .esconder,
+    html.vturb-pitch-pending #pos-pitch,
+    html.vturb-pitch-released .comments { display: none }
+    [data-checkout-link][hidden] { display: none }
+    .pitch-compact .pitch-price-large .pitch-offer-name { font-size: 1.51875rem }
+  </style>
+  <script>
+    (() => {
+      // Configuração da VSL: use o ID real do SmartPlayer e o tempo em segundos.
+      // Exemplo: para 12 min e 30 s, informe delay: 750.
+      const listPitch = {
+        'ID_DO_VIDEO_A': { delay: null, utm: 'utm_content=vslA' },
+        'ID_DO_VIDEO_B': { delay: null, utm: 'utm_content=vslB' },
+        'ID_DO_VIDEO_C': { delay: null, utm: 'utm_content=vslC' },
+      }
+      // Preencha quando receber a URL do checkout. Use uma URL HTTPS completa.
+      const checkoutUrl = ''
+      const validDelay = (value) => Number.isFinite(value) && value >= 0
+      const hasPitch = Object.entries(listPitch).some(([id, config]) =>
+        !id.startsWith('ID_DO_VIDEO_') && validDelay(config.delay)
+      )
+      const root = document.documentElement
+      if (hasPitch) root.classList.add('vturb-pitch-pending')
+
+      let initialized = false
+      let activePitch
+      function updateCheckout() {
+        const link = document.querySelector('[data-checkout-link]')
+        const button = document.querySelector('[data-checkout-placeholder]')
+        const notice = document.querySelector('[data-checkout-notice]')
+        if (!link || !checkoutUrl) return
+        let url
+        try { url = new URL(checkoutUrl) } catch { return }
+        if (url.protocol !== 'https:') return
+        for (const [name, value] of new URLSearchParams(activePitch?.utm)) {
+          url.searchParams.set(name, value)
+        }
+        link.href = url.href
+        button?.remove()
+        notice?.remove()
+        link.hidden = false
+      }
+      document.addEventListener('DOMContentLoaded', updateCheckout, { once: true })
+
+      document.addEventListener('player:ready', (event) => {
+        if (!hasPitch || initialized) return
+        const detail = event.detail || {}
+        const player = detail.player || (
+          event.target?.matches?.('vturb-smartplayer') ? event.target :
+            document.querySelector('#player-vturb vturb-smartplayer')
+        )
+        if (!player || typeof player.displayHiddenElements !== 'function') return
+        const id = detail.config?.id ?? player.config?.id ?? player.id
+        const idWithoutPrefix = typeof id === 'string' ? id.replace(/^vid-/, '') : ''
+        const key = Object.hasOwn(listPitch, id) ? id : idWithoutPrefix
+        if (!key || key.startsWith('ID_DO_VIDEO_') || !Object.hasOwn(listPitch, key)) return
+        const config = listPitch[key]
+        if (!validDelay(config.delay)) return
+
+        // A VTurb revela este marcador no tempo do vídeo, inclusive com persistência.
+        const marker = document.querySelector('#vturb-pitch-marker')
+        if (!marker) return
+        const release = () => {
+          if (getComputedStyle(marker).display === 'none') return
+          root.classList.replace('vturb-pitch-pending', 'vturb-pitch-released')
+          observer.disconnect()
+        }
+        const observer = new MutationObserver(release)
+        observer.observe(marker, { attributes: true, attributeFilter: ['class', 'style'] })
+        initialized = true
+        activePitch = config
+        updateCheckout()
+        try {
+          player.displayHiddenElements(config.delay, ['#vturb-pitch-marker'], { persist: true })
+          release()
+        } catch (error) {
+          initialized = false
+          observer.disconnect()
+          console.error('Falha ao configurar o pós-pitch da VTurb', error)
+        }
+      })
+    })()
+  </script>
